@@ -5,4 +5,6 @@ Mailgun integration example.
 coho init
 
 npm i codehooks-js form-data --save
+
+coho deploy
 ```
