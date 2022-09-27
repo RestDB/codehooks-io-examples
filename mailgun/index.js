@@ -46,17 +46,16 @@ app.post('/email', async (req, res) => {
 // Queue topic listener hook
 app.queue('emailQueue', async (req, res) => {
   try {
-    console.log("Worker", req.body._id)
     const conn = await Datastore.open();    
     // signal that we are processing emails
     await conn.set('running', new Date().toISOString(), {"ttl": 1000*10,"keyspace": "emailprocess"});
     const { emailaddress, name } = req.body.payload;
     
-    const attempt = await conn.updateOne('mailinglist', req.body._id, {$inc: {"attempt": 1}});
-    console.log(attempt)
+    const entry = await conn.updateOne('mailinglist', req.body._id, {$inc: {"attempt": 1}});
+    console.log(entry.emailaddress, entry.attempt)
     setTimeout(async () => {
       let reciept = await sendOneEmail(emailaddress, name);
-      console.log(reciept);
+      console.log("Mailgun reciept", reciept.id);
       await conn.updateOne('mailinglist', req.body._id, {emailSent: new Date().toISOString()});
       res.end();
     }, 1000)
@@ -78,7 +77,7 @@ app.job('*/10 * * * * *', async (req, res) => {
       
       // Add all emails that is not sent to queue
       const job = await conn.enqueueFromQuery('mailinglist', { $or: [{attempt: {$gt: 1, $lt: 3}}, {"attempt": {$exists: false}}] },  'emailQueue');
-      if (job.count > 0) console.log("Email process starting", job)
+      if (job.count > 0) console.log("Email process starting", job.count, "contacts")
     }
     res.end();
   } catch (ex) {
