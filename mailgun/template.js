@@ -123,8 +123,8 @@ const template = ({ body, intro = '', companyAddress = 'example company address'
                 </tr>
                 <tr>
                   <td class="content-block powered-by" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                    <p><img src="https://ndb-web-ymdqw.ondigitalocean.app/img/coho-init.png" width="250"></p>
-                    <p>Powered by <a href="https://codehooks.io" style="color: #999999; font-size: 12px; text-align: center; text-decoration: none;">codehooks.io</a></p>
+                    <p><img src="https://static.wikia.nocookie.net/warner-bros-entertainment/images/6/6e/Acme-corp.png/revision/latest?cb=20180619032346" width="150"></p>
+                    <p>Powered by <a href="https://example.com" style="color: #999999; font-size: 12px; text-align: center; text-decoration: none;">example.com</a></p>
                   </td>
                 </tr>
               </table>
@@ -144,18 +144,18 @@ const template = ({ body, intro = '', companyAddress = 'example company address'
 export const createWelcomeHTML = ({
     email, name,
   }) => template({
-    intro: 'Your new codehooks.io account',
+    intro: 'Your new example.com account',
     body: `
   Nice to see you ${name || email} 😃
   <br/>
-  <p>We wish you a warm welcome into the Codehooks space.</p>
+  <p>Welcome to the your new service.</p>
   
-  <p>You'll soon discover how you can create magically simple backends using just essential code and some powerful building blocks.</p>
+  <p>You'll soon discover how you can create magically simple apps.</p>
   
-  <p>Everything you need to get going, can be found in our docs at <a href="https://codehooks.io/docs">https://codehooks.io/docs</a>. </p>
+  <p>Everything you need to get going, can be found in our docs at <a href="https://codehooks.io/docs">https://example.com</a>. </p>
   <p>
   Best,
   <br/>
-  <i>the codehooks.io team</i>
+  <i>the Example team</i>
   `,
   });
