@@ -148,9 +148,9 @@ export const createWelcomeHTML = ({
     body: `
   Nice to see you ${name || email} 😃
   <br/>
-  <p>Welcome to the your new service.</p>
+  <p>Welcome to your new service.</p>
   
-  <p>You'll soon discover how you can create magically simple apps.</p>
+  <p>You'll soon discover how you can create magically simple stuff.</p>
   
   <p>Everything you need to get going, can be found in our docs at <a href="https://codehooks.io/docs">https://example.com</a>. </p>
   <p>
