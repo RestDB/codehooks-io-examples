@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/RestDB/codehooks-io-react-quotes/static/css/main.da28cb5d.css",
+    "main.js": "/RestDB/codehooks-io-react-quotes/static/js/main.e875a10f.js",
+    "static/media/logo.svg": "/RestDB/codehooks-io-react-quotes/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/RestDB/codehooks-io-react-quotes/index.html",
+    "main.da28cb5d.css.map": "/RestDB/codehooks-io-react-quotes/static/css/main.da28cb5d.css.map",
+    "main.e875a10f.js.map": "/RestDB/codehooks-io-react-quotes/static/js/main.e875a10f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da28cb5d.css",
+    "static/js/main.e875a10f.js"
+  ]
+}
