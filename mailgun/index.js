@@ -48,6 +48,15 @@ app.post('/email', async (req, res) => {
   res.status(201).json(doc);  
 });
 
+app.get('/foo', async (req, res) => {
+  console.log(req)
+  const conn = await Datastore.open();    
+  const options = {
+    hints: {$fields: {_id: 0, grill: 0}}
+  }
+  conn.getMany('mailinglist', options).json(res); 
+})
+
 // Queue topic serverless worker function
 app.queue('emailQueue', async (req, res) => {
   const conn = await Datastore.open();    

@@ -20,6 +20,7 @@ async function randomQuote(req, res) {
   // run the query, returns a stream of 1 item ;)
   conn.getMany('quotes', options)
     .on('data', (data) => {
+      console.log(data)
       const { quote, author } = data;
       res.json({ quote, author })
     })
