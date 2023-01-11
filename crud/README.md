@@ -1,7 +1,7 @@
 # Blog post link
 Read about this example source code in the blog post:
 
-https://codehooks.io/blog/how-to-add-a-crud-rest-api-to-a-codehooks-io-backend
+https://codehooks.io/blog/how-to-quickly-create-a-crud-rest-api-backend-using-codehooks-io-with-code-example
 
 ## Install
 ```bash
