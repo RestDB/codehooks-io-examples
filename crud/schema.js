@@ -16,7 +16,7 @@ let customer =
       )
   })
 
-  // product schema, any json is allowed
+// product schema, any json is allowed
 let product = yup.object().shape({
   json: yup.mixed()
 })
