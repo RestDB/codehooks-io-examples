@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "codehooks-js": "^1.0.1",
+    "form-data": "^4.0.0",
+    "node-fetch": "^3.3.0"
+  }
+}

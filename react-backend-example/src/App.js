@@ -7,19 +7,19 @@ const API_ENDPOINT = 'https://reactback-nyly.api.codehooks.io/dev/hello';
 const API_KEY = 'a4679c85-b4c8-49fb-b8ac-63230b269dd7';
 
 function App() {
-  // Application state variable
+  // Application state variables
   const [visits, setVisits] = useState(null);
   const [message, setMessage] = useState(null);
 
   useEffect(()=>{
-    // call Codehooks backend API
+    // Call Codehooks backend API
     const fetchData = async () => {
       const response = await fetch(API_ENDPOINT, {
         method: "GET",
         headers: { "x-apikey": API_KEY }
       });
       const data = await response.json();
-      // change app state and reload
+      // Change application state and reload
       setMessage(data.message);
       setVisits(data.visits);
     }
