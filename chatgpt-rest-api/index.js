@@ -1,5 +1,5 @@
 /*
-* ChatGPT-3 REST API example using serverless node.js and codehooks.io
+* GPT-3 REST API example using serverless node.js and codehooks.io
 */
 
 import { app, Datastore } from 'codehooks-js';
@@ -12,51 +12,50 @@ app.post('/chat', async (req, res) => {
     const { ask } = req.body;
     const db = await Datastore.open();
     const cacheKey = 'chatgpt_cache_' + ask;
-    
+
     // check cache first    
     const cachedAnswer = await db.get(cacheKey);
 
     // get from cache or OpenAi
     if (cachedAnswer) {
         res.end('Cache: ' + cachedAnswer)
-    } else { // get from OpenAi api
+    } else { // get from Open AI API
 
         // pick text element from the OpenAI response by JS nested destructuring
-        const {choices: {0: {text}}} = await callOpenAiApi(ask); 
+        const { choices: { 0: { text } } } = await callOpenAiApi(ask);
         console.log(ask, text);
 
         // add to cache for 1 minute
-        await db.set(cacheKey, text, {ttl: 60*1000});
+        await db.set(cacheKey, text, { ttl: 60 * 1000 });
         // send text back to client
         res.end(text);
-    }    
+    }
 })
 
-// Call OpenAi API
-function callOpenAiApi(ask) {
-    return new Promise(async (resolve, reject) => {
-        
-        var raw = JSON.stringify({
-            "model": "text-davinci-003",
-            "prompt": ask,
-            "temperature": 0.6,
-            "max_tokens": 1024,
-            "stream": false
-        });
+// Call OpenAI API
+async function callOpenAiApi(ask) {
 
-        var requestOptions = {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
-            },
-            body: raw,
-            redirect: 'follow'
-        };
+    var raw = JSON.stringify({
+        "model": "text-davinci-003",
+        "prompt": ask,
+        "temperature": 0.6,
+        "max_tokens": 1024,
+        "stream": false
+    });
 
-        const response = await fetch("https://api.openai.com/v1/completions", requestOptions);
-        resolve(await response.json());            
-    })
+    var requestOptions = {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
+        },
+        body: raw,
+        redirect: 'follow'
+    };
+
+    const response = await fetch("https://api.openai.com/v1/completions", requestOptions);
+    return await response.json();
+
 }
 
 // global middleware to IP rate limit traffic
@@ -65,7 +64,7 @@ app.use(async (req, res, next) => {
     // get client IP address
     const ipAddress = req.headers['x-real-ip'];
     // increase count for IP
-    const count = await db.incr('IP_count_'+ipAddress, 1, {ttl: 60 * 1000})
+    const count = await db.incr('IP_count_' + ipAddress, 1, { ttl: 60 * 1000 })
     console.log(ipAddress, count);
     if (count > 10) {
         // too many calls
