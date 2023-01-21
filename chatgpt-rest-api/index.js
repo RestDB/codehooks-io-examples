@@ -1,5 +1,5 @@
 /*
-* ChatGTP REST API example using serverless node.js and codehooks.io
+* ChatGPT-3 REST API example using serverless node.js and codehooks.io
 */
 
 import { app, Datastore } from 'codehooks-js';
