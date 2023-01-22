@@ -18,7 +18,7 @@ app.post('/chat', async (req, res) => {
 
     // get from cache or OpenAi
     if (cachedAnswer) {
-        res.end('Cache: ' + cachedAnswer)
+        res.end(cachedAnswer)
     } else { // get from Open AI API
 
         // pick text element from the OpenAI response by JS nested destructuring
@@ -35,7 +35,7 @@ app.post('/chat', async (req, res) => {
 // Call OpenAI API
 async function callOpenAiApi(ask) {
 
-    var raw = JSON.stringify({
+    const raw = JSON.stringify({
         "model": "text-davinci-003",
         "prompt": ask,
         "temperature": 0.6,
