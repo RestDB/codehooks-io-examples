@@ -54,7 +54,7 @@ async function callOpenAiApi(ask) {
     };
 
     const response = await fetch("https://api.openai.com/v1/completions", requestOptions);
-    return await response.json();
+    return response.json();
 
 }
 
