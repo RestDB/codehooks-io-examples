@@ -6,9 +6,8 @@ export default async function message(req, res) {
     let count = 0
     // queue one message to all active users
     const db = await Datastore.open()
-    const coll = db.getCollection('user')
     const filter = {active: true}
-    coll.getMany({filter})
+    db.getMany('user', {filter})
     .on('data', async (aUser) => {
         ++count
         console.log("User data", aUser)
