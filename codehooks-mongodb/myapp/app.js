@@ -1,5 +1,5 @@
 /* 
-* standalone.js
+* app.js
 * Example express app for running codehooks.io standalone using MongoDB
 */
 import express from 'express';
