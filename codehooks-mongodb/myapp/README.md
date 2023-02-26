@@ -55,6 +55,19 @@ curl -X GET \
   --header 'Content-Type: application/json' 
 ```
 
+Example output.
+
+```json
+[
+  {
+    "_id": "63fb97825f624f479034eb08",
+    "active": true,
+    "email": "ally@example.com",
+    "name": "Ally"
+  }
+]
+```
+
 ## Deploy the app to the Codehooks cloud
 
 First create a new Codehooks project to hold the app.
