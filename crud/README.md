@@ -15,7 +15,7 @@ cd crud
 coho init
 
 # install npm packages
-npm install yup codehooks-crudlify-yup codehooks-js lodash --save
+npm install yup codehooks-crudlify codehooks-js lodash --save
 
 # deploy project to the serverless cloud
 coho deploy
@@ -25,4 +25,4 @@ Read more in the docs:
 
 https://codehooks.io/docs
 
-https://www.npmjs.com/package/codehooks-crudlify-yup
+https://www.npmjs.com/package/codehooks-crudlify
