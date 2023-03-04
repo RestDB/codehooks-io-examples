@@ -17,7 +17,7 @@ git clone https://github.com/RestDB/codehooks-io-examples.git
 Navigate to the example app directory.
 
 ```bash
-cd codehooks-mongodb/myapp
+cd codehooks-io-examples/codehooks-mongodb/myapp
 ```
 
 ## Install app dependencies

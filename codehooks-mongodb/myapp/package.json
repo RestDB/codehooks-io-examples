@@ -1,5 +1,5 @@
 {
-  "name": "codehooks-mongodb-example-app",
+  "name": "",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -18,24 +18,23 @@
   "bugs": "",
   "keywords": [],
   "author": {
-    "name": "Codehooks.io",
-    "email": "contact@codehooks.io",
-    "url": "https://codehooks.io"
+    "name": "",
+    "email": "",
+    "url": ""
   },
   "contributors": [],
   "scripts": {
-    "start": "node app.js",
     "dev": "",
     "test": ""
   },
   "dependencies": {
     "body-parser": "^1.20.2",
     "codehooks-crudlify-yup": "^1.0.8",
-    "codehooks-js": "^1.0.5",
-    "codehooks-mongodb": "^1.0.6",
+    "codehooks-js": "^1.0.6",
+    "codehooks-mongodb": "^1.0.7",
     "debug": "^4.3.4",
     "express": "^4.18.2",
     "mongodb": "^5.1.0",
-    "yup": "^1.0.0"
+    "yup": "^1.0.2"
   }
 }
