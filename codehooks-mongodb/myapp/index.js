@@ -2,7 +2,7 @@
 *  Example codehooks-mongodb backend app
 */
 import app from 'codehooks-js'
-import crudlify from 'codehooks-crudlify-yup'
+import crudlify from 'codehooks-crudlify'
 import {user} from './schema.js'; // Yup data schema definition
 
 // Add CRUD routes for a user schema - collection

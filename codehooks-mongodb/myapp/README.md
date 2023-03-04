@@ -24,7 +24,7 @@ cd codehooks-io-examples/codehooks-mongodb/myapp
 
 ```bash
 npm init es6 -y
-npm install codehooks-mongodb codehooks-js codehooks-crudlify-yup express body-parser mongodb debug yup --save
+npm install codehooks-mongodb codehooks-js codehooks-crudlify express body-parser mongodb debug yup --save
 ```
 
 ## Start the server locally

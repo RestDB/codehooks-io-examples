@@ -2,7 +2,7 @@
 * Auto CRUD example using yup schema
 */
 import app from 'codehooks-js'
-import crudlify from 'codehooks-crudlify-yup'
+import crudlify from 'codehooks-crudlify'
 import * as yup from 'yup';
 
 import {customer, product} from './schema'
