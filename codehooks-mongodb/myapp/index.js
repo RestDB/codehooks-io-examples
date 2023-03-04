@@ -1,7 +1,7 @@
 /* index.js
 *  Example codehooks-mongodb backend app
 */
-import {app, Datastore} from 'codehooks-js'
+import app from 'codehooks-js'
 import crudlify from 'codehooks-crudlify-yup'
 import {user} from './schema.js'; // Yup data schema definition
 
@@ -13,7 +13,6 @@ app.post('/message', message)
 
 // queue worker function to topic
 app.queue('messageTopic', queueIt)
-
 
 // Add CRUD routes for a user schema - collection
 crudlify(app, {user})
