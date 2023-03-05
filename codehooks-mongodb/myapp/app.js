@@ -15,7 +15,7 @@ const options = {
 }
 
 // important, make codehooks use express and MongoDB
-codehooks.app.useExpress(app, options);
+codehooks.useExpress(app, options);
 
 const server = app.listen(8080, () => {
     console.log('Listening on port:', server.address().port);
