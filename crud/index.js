@@ -3,10 +3,8 @@
 */
 import app from 'codehooks-js'
 import crudlify from 'codehooks-crudlify'
-import * as yup from 'yup';
-
 import {customer, product} from './schema'
-//import {middleware} from './middleware'
+import {middleware} from './middleware'
 
 // apply middleware
 app.use('/customer', middleware)
