@@ -58,7 +58,7 @@ app.get('/foo', async (req, res) => {
 })
 
 // Queue topic serverless worker function
-app.queue('emailQueue', async (req, res) => {
+app.worker('emailQueue', async (req, res) => {
   const conn = await Datastore.open();    
   try {    
     // signal that we are processing emails
