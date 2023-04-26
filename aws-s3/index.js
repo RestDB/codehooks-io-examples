@@ -17,7 +17,13 @@ const s3config = {
 const s3 = new S3Client(s3config);
 
 // public access
-app.auth('/s3/*', (req, res, next) => next())
+app.auth('/s3/*', (req, res, next) => {
+    if (req.method === 'GET') {
+        next()
+    } else {
+        res.status(403).end('Not public')
+    }    
+})
 
 app.get('/s3/:file', async (req, res) => {
     try {
