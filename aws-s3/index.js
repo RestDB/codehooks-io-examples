@@ -6,10 +6,10 @@ import { app } from 'codehooks-js'
 import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3'
 import { PassThrough } from 'stream'
 
-const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env;
+const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_REGION, AWS_BUCKET } = process.env;
 
 const s3config = {
-    region: 'eu-central-1',
+    region: AWS_REGION,
     AWS_ACCESS_KEY_ID,
     AWS_SECRET_ACCESS_KEY
 }
@@ -29,7 +29,7 @@ app.get('/s3/:file', async (req, res) => {
     try {
         const { file } = req.params;
         const input = {
-            "Bucket": "coho-dev",
+            "Bucket": AWS_BUCKET,
             "Key": `tmp/${file}`
         };
         const command = new GetObjectCommand(input);
