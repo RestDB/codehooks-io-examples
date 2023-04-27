@@ -59,7 +59,7 @@ app.post('/s3/:file', async (req, res) => {
         const stream = new PassThrough();
         
         const input = {
-            "Bucket": "coho-dev",
+            "Bucket": AWS_BUCKET,
             "Key": `tmp/${file}`,
             "Body": stream,
             "ContentLength": parseInt(ContentLength),
