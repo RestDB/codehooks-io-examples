@@ -5,6 +5,8 @@
 import { app } from 'codehooks-js'
 import Busboy from 'busboy'
 
+// public route needs no api token
+app.auth('/multi/*', (req, res, next) => next())
 
 app.post('/multi', (req, res) => {
     console.log("POST BIN", req)
@@ -27,12 +29,27 @@ app.post('/multi', (req, res) => {
         });
         bb.on('close', () => {
             console.log('Done parsing form!');
-            res.end('Busboy done');
+            res.end('Busboy parsing multipart-form data');
         });
         req.pipe(bb);
     } else {
         res.status(400).end('Not multipart-form data')
     }
+})
+
+app.get('/multi', (req, res) => {
+    res.end(`
+      <html>
+        <head></head>
+        <body>
+          <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="filefield"><br />
+            <input type="text" name="textfield"><br />
+            <input type="submit">
+          </form>
+        </body>
+      </html>
+    `);
 })
 
 // bind to serverless runtime

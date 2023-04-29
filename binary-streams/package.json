@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "codehooks-js": "^1.0.11"
+  }
+}
