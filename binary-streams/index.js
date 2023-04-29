@@ -64,13 +64,24 @@ app.post('/multi', (req, res) => {
 app.get('/multi', (req, res) => {
     res.end(`
       <html>
-        <head></head>
+        <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </head>
         <body>
+          <h2>Codehooks multipart/form-data upload demo</h2>
           <form method="POST" enctype="multipart/form-data">
-            <input type="file" name="filefield"><br />
-            <input type="text" name="textfield"><br />
-            <input type="file" name="filefield"><br />
-            <input type="text" name="textfield"><br />
+            <h3>File 1</h3>
+            <input type="file" name="filefield1"><br />
+            <h3>Text field 1</h3>
+            <input type="text" name="textfield1"><br />
+
+            <h3>File 2</h3>
+            <input type="file" name="filefield2"><br />
+            <h3>Text field 2</h3>
+            <input type="text" name="textfield2"><br />
+            
+            <hr/>
+            
             <input type="submit">
           </form>
         </body>
