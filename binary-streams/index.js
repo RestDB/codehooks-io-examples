@@ -48,14 +48,7 @@ app.post('/multi', (req, res) => {
             res.end(`<pre>${JSON.stringify(uploads, null, '  ')}</pre>`);
         });
         bb.on('error',(err) => console.log(err))
-        //req.pipe(bb);
-        req.on('data', (buf) => {
-            bb.write(buf, 'buffer')
-        })
-        req.on('end', (bytes) => {
-            console.log('multi done', bytes)        
-            bb.end()
-        })
+        req.pipe(bb);        
     } else {
         res.status(400).end('Not multipart-form data')
     }
