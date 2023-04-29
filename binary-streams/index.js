@@ -5,18 +5,10 @@
 import { app, Datastore } from 'codehooks-js'
 import Busboy from 'busboy'
 
+// binary echo
 app.post('/bin', (req, res) => {
-    console.log("POST BIN", req)
     res.set('content-type', req.headers['content-type'])
-    //req.pipe(res.writable)
-    
-    req.on('data', (buf) => {
-        res.write(buf, 'buffer')
-    })
-    req.on('end', (bytes) => {
-        console.log('binary done', bytes)        
-        res.end()
-    })
+    req.pipe(res.writable)
 })
 
 app.auth('/multi*', (req, res, next) => next())
