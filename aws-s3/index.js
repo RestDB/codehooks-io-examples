@@ -14,18 +14,18 @@ const s3config = {
     AWS_SECRET_ACCESS_KEY
 }
 
-const s3 = new S3Client(s3config);
+const s3client = new S3Client(s3config);
 
 // public access
-app.auth('/s3/*', (req, res, next) => {
+app.auth('/download/*', (req, res, next) => {
     if (req.method === 'GET') {
         next()
     } else {
         res.status(403).end('Not public')
-    }    
+    }
 })
 
-app.get('/s3/:file', async (req, res) => {
+app.get('/download/:file', async (req, res) => {
     try {
         const { file } = req.params;
         const input = {
@@ -33,7 +33,7 @@ app.get('/s3/:file', async (req, res) => {
             "Key": `tmp/${file}`
         };
         const command = new GetObjectCommand(input);
-        const response = await s3.send(command);
+        const response = await s3client.send(command);
         const stream = response.Body
         /* classic way
         .on('data', (buf) => res.write(buf, 'buffer'))
@@ -50,29 +50,29 @@ app.get('/s3/:file', async (req, res) => {
     }
 })
 
-app.post('/s3/:file', async (req, res) => {
+// API to POST a binary data stream
+app.post('/upload/single', async (req, res) => {
     try {
-        const { 'content-length': ContentLength, 'content-type': ContentType } = req.headers;
-        const { file } = req.params;
-        console.log(file, ContentType, ContentLength)
+        // get size, type and filename from destructured header values
+        const { 'content-length': ContentLength, 'content-type': ContentType, filename } = req.headers;
 
-        const stream = new PassThrough();
-        
         const input = {
             "Bucket": AWS_BUCKET,
-            "Key": `tmp/${file}`,
-            "Body": stream,
-            "ContentLength": parseInt(ContentLength),
+            "Key": `tmp/${filename}`,  // emulate file system /bucketname/tmp/filename
+            "Body": new PassThrough(), // stream to pipe data through
+            "ContentLength": ContentLength,
             "ContentType": ContentType
         };
-
-        req.pipe(stream);
-
+        // pipe binary request data to S3 stream
+        req.pipe(input.Body);
+        // create put command
         const command = new PutObjectCommand(input);
-        const response = await s3.send(command);
-        res.json(response)
+        // execute put object command
+        const response = await s3client.send(command);
+        // return data to client
+        res.json(response);
     } catch (error) {
-        console.error('auuch', error)
+        // some error occured, return 400 status to client
         res.status(400).end(error.message)
     }
 })
