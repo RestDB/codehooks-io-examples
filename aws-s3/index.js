@@ -25,32 +25,30 @@ app.auth('/download/*', (req, res, next) => {
     }
 })
 
+// API to GET a binary data stream from AWS S3
 app.get('/download/:file', async (req, res) => {
     try {
+        // filename from route
         const { file } = req.params;
         const input = {
             "Bucket": AWS_BUCKET,
-            "Key": `tmp/${file}`
+            "Key": `tmp/${decodeURI(file)}` // decode filename and store in /bucket/tmp/file
         };
+        // Create get command
         const command = new GetObjectCommand(input);
+        // Send get command
         const response = await s3client.send(command);
-        const stream = response.Body
-        /* classic way
-        .on('data', (buf) => res.write(buf, 'buffer'))
-        .on('end', res.end)
-        */
-        console.log(response.ContentType)
+        // set content-type
         res.set('content-type', response.ContentType)
-
-        stream.pipe(res.writable)
-
+        // stream data back to client
+        response.Body.pipe(res.writable)
     } catch (error) {
-        console.error('eerroorr', error.message)
+        // Woops
         res.status(400).end(error.message)
     }
 })
 
-// API to POST a binary data stream
+// API to POST a binary data stream to AWS S3
 app.post('/upload/single', async (req, res) => {
     try {
         // get size, type and filename from destructured header values
