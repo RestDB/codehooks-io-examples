@@ -16,6 +16,8 @@ async function randomQuote(req, res) {
     useIndex: "rowcount",
     startIndex: randomPos,
     endIndex: randomPos
+    
+   //filter: {rowcount: randomPos}
   }
   // run the query, returns a stream of 1 item ;)
   conn.getMany('quotes', options)
