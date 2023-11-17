@@ -1,5 +1,3 @@
-
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -9,35 +7,37 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="script.js"></script>
 </head>
+
 <body class="p-4">
-    <h1 class="text-2xl pb-4"  x-data="{ message: 'Alpine.js: Get data from a REST API' }" x-text="message"></h1>
+    <h1 class="text-2xl pb-4" x-data="{ message: 'Alpine.js: Get data from a REST API' }" x-text="message"></h1>
     <div x-data>
-        <input @keyup.enter="$store.coho.getData()" x-model="$store.coho.search" placeholder="Search for player ..." class="input input-bordered input-sm">
+        <input @keyup.enter="$store.coho.getData()" x-model="$store.coho.search" placeholder="Search for player ..."
+            class="input input-bordered input-sm">
         <button @click="$store.coho.getData()" class="btn btn-primary btn-sm">Search</button>
     </div>
     <div class="overflow-x-auto">
-        <table class="table">            
-            <thead>                
+        <table class="table">
+            <thead>
                 <th>Player</th>
                 <th>Squad</th>
-                <th>Nation</th>  
-                <th>Index</th>          
+                <th>Nation</th>
+                <th>Index</th>
             </thead>
-            <tbody x-data>                
+            <tbody x-data>
                 <template x-for="(player, index) in $store.coho.players">
-                    <tr>                        
-                        <td x-text="player.Player"></td>                        
+                    <tr>
+                        <td x-text="player.Player"></td>
                         <td x-text="player.Squad"></td>
                         <td x-text="player.Nation"></td>
                         <td x-text="index"></td>
                     </tr>
-                </template>                
-            </tbody>            
+                </template>
+            </tbody>
         </table>
         <div x-data>
             <span x-show="$store.coho.loading" class="loading loading-dots loading-sm"></span>
         </div>
     </div>
-    
+
 </body>
 </html>
