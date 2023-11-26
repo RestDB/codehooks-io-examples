@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codehooks Alpine.js Admin data app</title>
+    <script src="https://unpkg.com/@shaun/alpinejs-router@1.x.x/dist/es6.min.js" defer></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/navigo@8.0.0/lib/navigo.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.4/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <link href="/{{space}}/assets/css/styles.css" rel="stylesheet" type="text/css"/>   
+</head>
+
+<body x-data="app()">
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+            <h2 class="text-2xl">Alpine Data Admin</h2> <span class="text-sm px-2"> 0.1 alpha</span>
+        </div>
+        <div class="flex-none gap-2">
+            <div class="form-control">
+                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+            </div>
+            <div class="dropdown dropdown-end">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                        <img alt="Tailwind CSS Navbar component" src="/dev/assets/img/dude.png" />
+                    </div>
+                </label>
+                <ul tabindex="0"
+                    class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                    <li>
+                        <a class="justify-between" href="{{root}}/profile" @click.prevent="navigate('/profile')">
+                            Profile
+                            <span class="badge">New</span>
+                        </a>
+                    </li>
+                    <li><a>Settings</a></li>
+                    <li><a>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="drawer lg:drawer-open">        
+        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col">
+            <!-- Page content here -->
+            <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>            
+            <!-- Route Views -->
+            <div x-show="route === '{{root}}'" x-cloak>
+                {{{dashboardView}}}
+            </div>
+            <div x-show="route === '{{root}}/dashboard'" x-cloak>
+                {{{dashboardView}}}
+            </div>
+            <div x-show="route.startsWith('{{root}}/collection/')" x-cloak>
+                {{{collectionView}}}
+            </div>
+            <div x-show="route === '{{root}}/profile'" x-cloak>
+                {{{profileView}}}
+            </div>
+            <div x-show="route === '{{root}}/404'" x-cloak>
+                A mystery has occured ...
+            </div>
+        </div>
+        <div class="drawer-side">
+            <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                <!-- Sidebar content here -->
+                <!-- Navigation -->
+                <li><a href="{{root}}" @click.prevent="navigate('/dashboard')">Home</a></li>
+                <li><a href="{{root}}/collection/customer" @click.prevent="navigate('/collection/customer')">Customers</a></li>
+                <li><a href="{{root}}/collection/users" @click.prevent="navigate('/collection/user')">Users</a></li>                
+            </ul>
+
+        </div>
+    </div>
+    <script src="/{{space}}/assets/js/app.js"></script>
+</body>
+
+</html>
