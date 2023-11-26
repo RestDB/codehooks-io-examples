@@ -20,7 +20,7 @@ app.auth('/app*', (req, res, next) => {
 })
 app.get('/app*', async (req, res) => {
   // Render html template with page fragments
-  res.send(template({root: "/dev/app", space: "dev", collectionView, dashboardView, profileView}))
+  res.send(template({root: "/dev/app", space: "dev", version: "pre alpha", collectionView, dashboardView, profileView}))
 })
 app.static({ route: '/assets', directory: '/assets' })
 
