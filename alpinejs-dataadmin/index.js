@@ -15,12 +15,24 @@ import handlebars from 'handlebars';
 // Compile template at startup
 var template = handlebars.compile(startpage);
 
+// view config
+const viewConfig = {
+  root: "/dev/app", 
+  space: "dev", 
+  version: "pre alpha", 
+  collectionView, 
+  dashboardView, 
+  profileView
+}
+
+// server app public
 app.auth('/app*', (req, res, next) => {
   next()
 })
+
 app.get('/app*', async (req, res) => {
   // Render html template with page fragments
-  res.send(template({root: "/dev/app", space: "dev", version: "pre alpha", collectionView, dashboardView, profileView}))
+  res.send(template(viewConfig))
 })
 app.static({ route: '/assets', directory: '/assets' })
 
