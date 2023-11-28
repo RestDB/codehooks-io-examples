@@ -1,38 +1,21 @@
 <div class="container">
   <div class="overflow-x-auto object-top">
-    <h3 class="text-2xl" x-text="collectionId"></h3>
-    <table class="table table-zebra">
+    <table class="table table-zebra" x-data>
       <!-- head -->
+      <caption class="text-xl" x-text="collectionId"></caption>
       <thead>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Job</th>
-          <th>Favorite Color</th>
-        </tr>
+        <template x-for="id in Object.keys($store.mystore[collectionId][0])" :key="id"">
+            <td x-text=" id"></th>
+        </template>
       </thead>
       <tbody>
-        <!-- row 1 -->
-        <tr>
-          <th>1</th>
-          <td>Cy Ganderton</td>
-          <td>Quality Control Specialist</td>
-          <td>Blue</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <th>2</th>
-          <td>Hart Hagerty</td>
-          <td>Desktop Support Technician</td>
-          <td>Purple</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <th>3</th>
-          <td>Brice Swyre</td>
-          <td>Tax Accountant</td>
-          <td>Red</td>
-        </tr>
+        <template x-for="(row, index) in $store.mystore[collectionId]">
+          <tr>
+            <template x-for="id in Object.keys($store.mystore[collectionId][0])" :key="id"">
+            <td x-text=" row[id]"></td>
+            </template>
+          </tr>
+        </template>
       </tbody>
     </table>
   </div>

@@ -12,26 +12,27 @@
 </head>
 
 <body x-data="app()">
-    <div class="navbar bg-base-100">
+    <div class="navbar bg-base-300">
         <div class="flex-1">
-            <h2 class="text-2xl">Alpine Data Admin</h2> <span class="text-sm px-2"> {{version}}</span>
+            <label for="my-drawer-2" class="btn btn-primary btn-sm drawer-button lg:hidden">Menu</label>
+            <button class="btn btn-ghost text-xl" @click.prevent="navigate('/dashboard')">Alpine.js SPA</button>
         </div>
         <div class="flex-none gap-2">
-            <div class="form-control">
-                <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-            </div>
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="https://codehooks.io/docs" target="_blank">Docs</a></li>
+                <li><a href="https://codehooks.io/blog" target="_blank">Blog</a></li>
+            </ul>
             <div class="dropdown dropdown-end">
                 <label tabindex="0" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component" src="/dev/assets/img/dude.png" />
+                        <img alt="Profile image" src="/{{space}}/assets/img/dude.png" />
                     </div>
                 </label>
                 <ul tabindex="0"
                     class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                     <li>
                         <a class="justify-between" href="{{root}}/profile" @click.prevent="navigate('/profile')">
-                            Profile
-                            <span class="badge">New</span>
+                            Profile                            
                         </a>
                     </li>
                     <li><a>Settings</a></li>
@@ -45,7 +46,7 @@
         <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content flex flex-col">
             <!-- Page content here -->
-            <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>            
+            
             <!-- Route Views -->
             <div x-show="route === '{{root}}'" x-cloak>
                 {{{dashboardView}}}
@@ -63,14 +64,14 @@
                 A mystery has occured ...
             </div>
         </div>
-        <div class="drawer-side">
+        <div id="drawer-menu" class="drawer-side">
             <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
             <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                 <!-- Sidebar content here -->
                 <!-- Navigation -->
                 <li><a href="{{root}}" @click.prevent="navigate('/dashboard')">Home</a></li>
-                <li><a href="{{root}}/collection/customer" @click.prevent="navigate('/collection/customer')">Customers</a></li>
-                <li><a href="{{root}}/collection/users" @click.prevent="navigate('/collection/user')">Users</a></li>                
+                <li><a href="{{root}}/collection/customer" @click.prevent="navigate('/collection/customers');">Customers</a></li>
+                <li><a href="{{root}}/collection/users" @click.prevent="navigate('/collection/users')">Users<span class="badge">New</span></a></li>                
             </ul>
 
         </div>

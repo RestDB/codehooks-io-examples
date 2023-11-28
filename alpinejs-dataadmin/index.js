@@ -1,6 +1,6 @@
 
 /*
-* Codehooks (c) example: Alpine.js Data admin app
+* Codehooks (c) example: Alpine.js SPA app
 * Install: npm i codehooks-js
 */
 import { app, filestore } from 'codehooks-js'
@@ -19,7 +19,7 @@ var template = handlebars.compile(startpage);
 const viewConfig = {
   root: "/dev/app", 
   space: "dev", 
-  version: "pre alpha", 
+  version: "0.1", 
   collectionView, 
   dashboardView, 
   profileView
