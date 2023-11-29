@@ -10,9 +10,9 @@
       </thead>
       <tbody>
         <template x-for="(row, index) in $store.mystore[collectionId]">
-          <tr>
+          <tr class="table-row" @click.prevent="navigate(`/detail/${collectionId}/${row._id}`)">
             <template x-for="id in Object.keys($store.mystore[collectionId][0])" :key="id"">
-            <td x-text=" row[id]"></td>
+              <td class="table-cell" x-text=" row[id]"></td>
             </template>
           </tr>
         </template>

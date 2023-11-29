@@ -2,13 +2,15 @@
 const root = '/dev/app';
 
 const mockUsers = [
-  { name: "Fred", email: "fred@example.com" },
-  { name: "Jill", email: "jill@example.com" }
+  { _id: 1, name: "Fred", email: "fred@example.com" },
+  { _id: 2, name: "Jill", email: "jill@example.com" },
+  { _id: 3,name: "Joe", email: "joe@example.com" }
 ]
 
 const mockCustomers = [
-  { name: "Acme Inc", city: "ACO", email: "acme@example.com" },
-  { name: "Billo Coffe", city: "MEX", email: "billo@example.com" }
+  { _id: 1, name: "Acme Inc", city: "ACO", email: "acme@example.com" },
+  { _id: 2, name: "Billo Coffe", city: "MEX", email: "billo@example.com" },
+  { _id: 3, name: "Santa Cruise", city: "STC", email: "stc@example.com" }
 ]
 
 document.addEventListener('alpine:init', () => {
@@ -17,6 +19,8 @@ document.addEventListener('alpine:init', () => {
     search: '',
     users: [],
     customers: [],
+    activeCollection: null,
+    activeRow: null,
     async getUsers() {
       console.log('getUsers')
       this.loading = true
@@ -36,6 +40,7 @@ function app() {
   return {
     route: '/',
     collectionId: null,
+    oId: null,
     router: null,
     title: '',
 
@@ -64,6 +69,14 @@ function app() {
           }
 
           console.log('Coll ID', this.collectionId)
+        })
+        .on('/detail/:id/:oid', (params) => {
+          this.title = 'Details';
+          this.route = `${root}/detail/${params.data.id}/${params.data.oid}`;
+          this.collectionId = params.data.id;
+          this.oId = params.data.oid;
+          Alpine.store('mystore').activeCollection = this.collectionId
+          Alpine.store('mystore').activeRow = this.oId;
         })
         .on('/profile', () => {
           this.route = `${root}/profile`;

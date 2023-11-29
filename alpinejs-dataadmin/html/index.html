@@ -57,6 +57,9 @@
             <div x-show="route.startsWith('{{root}}/collection/')" x-cloak>
                 {{{collectionView}}}
             </div>
+            <div x-show="route.startsWith('{{root}}/detail/')" x-cloak>
+                {{{detailView}}}
+            </div>
             <div x-show="route === '{{root}}/profile'" x-cloak>
                 {{{profileView}}}
             </div>

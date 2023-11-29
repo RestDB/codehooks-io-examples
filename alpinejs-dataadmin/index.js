@@ -6,6 +6,7 @@
 import { app, filestore } from 'codehooks-js'
 import startpage from './html/index.html'
 import collectionView from './html/collection.html'
+import detailView from './html/details.html'
 import dashboardView from './html/dashboard.html'
 import profileView from './html/profile.html'
 
@@ -21,6 +22,7 @@ const viewConfig = {
   space: "dev", 
   version: "0.1", 
   collectionView, 
+  detailView,
   dashboardView, 
   profileView
 }
