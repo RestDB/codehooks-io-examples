@@ -48,12 +48,9 @@
             <!-- Page content here -->
             
             <!-- Route Views -->
-            <div x-show="route === '{{root}}'" x-cloak>
+            <div x-show="route === '{{root}}' || route === '{{root}}/dashboard'" x-cloak>
                 {{{dashboardView}}}
-            </div>
-            <div x-show="route === '{{root}}/dashboard'" x-cloak>
-                {{{dashboardView}}}
-            </div>
+            </div>           
             <div x-show="route.startsWith('{{root}}/collection/')" x-cloak>
                 {{{collectionView}}}
             </div>
