@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container mx-auto p-1.5">
   <div class="overflow-x-auto object-top">
     <table class="table table-zebra" x-data>
       <!-- head -->
-      <caption class="text-xl" x-text="collectionId"></caption>
+      <caption class="text-xl capitalize" x-text="collectionId"></caption>
       <thead>
         <template x-for="id in Object.keys($store.mystore[collectionId][0])" :key="id"">
-            <td x-text=" id"></th>
+            <td class="capitalize" x-text=" id"></th>
         </template>
       </thead>
       <tbody>
