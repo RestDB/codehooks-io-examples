@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme Corp - {{title}}</title>
+    <!-- Insert Tailwind CSS CDN here -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.1/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Insert DaisyUI plugin CDN here -->
+    <!--script src="https://cdn.jsdelivr.net/npm/daisyui/dist/full.js"></script-->
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <!-- Logo -->
+                    <div>
+                        <a href="{{root}}" class="flex items-center py-4 px-2">
+                            <img src="/{{space}}/assets/img/logo-small.png" alt="Logo" class="h-8 w-8 mr-2">
+                            <span class="font-semibold text-gray-500 text-lg">Acme Corp</span>
+                        </a>
+                    </div>
+                    <!-- Primary Navbar items -->
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="{{root}}" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Home</a>
+                        <a href="{{root}}/about" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">About</a>
+                        <a href="{{root}}/services" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Services</a>
+                        <a href="{{root}}/contact" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <!-- Secondary Navbar items -->
+                <div class="hidden md:flex items-center space-x-3 ">
+                    <a href="" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
+                    <a href="" class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {{#block "main"}}                
+    {{/block}}    
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="container mx-auto px-6 pt-10 pb-6">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/4 text-center md:text-left">
+                    <h5 class="uppercase mb-6 font-bold">Links</h5>
+                    <ul class="mb-4">
+                        <li><a href="{{root}}" class="hover:text-green-500">Home</a></li>
+                        <li><a href="{{root}}/services" class="hover:text-green-500">Services</a></li>
+                        <li><a href="{{root}}/about" class="hover:text-green-500">About</a></li>
+                        <li><a href="{{root}}/contact" class="hover:text-green-500">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 text-center md:text-left">
+                    <h5 class="uppercase mb-6 font-bold">Company</h5>
+                    <ul class="mb-4">
+                        <li><a href="#" class="hover:text-green-500">The Company</a></li>
+                        <li><a href="#" class="hover:text-green-500">Careers</a></li>
+                        <li><a href="#" class="hover:text-green-500">Press</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 text-center md:text-left">
+                    <h5 class="uppercase mb-6 font-bold">Resources</h5>
+                    <ul class="mb-4">
+                        <li><a href="#" class="hover:text-green-500">Blog</a></li>
+                        <li><a href="#" class="hover:text-green-500">Help Center</a></li>
+                        <li><a href="#" class="hover:text-green-500">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-green-500">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 text-center md:text-left">
+                    <h5 class="uppercase mb-6 font-bold">Contact</h5>
+                    <ul class="mb-4">
+                        <li><a href="#" class="hover:text-green-500">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-green-500">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

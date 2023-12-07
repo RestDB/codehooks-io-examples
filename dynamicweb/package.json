@@ -1,0 +1,17 @@
+{
+  "name": "dynamicweb",
+  "version": "1.0.0",
+  "description": "Codehooks example for dynamic web pages",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "coho upload --src './assets'  && coho upload --src './views' && coho deploy --upload"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "codehooks-js": "^1.1.8",
+    "handlebars": "^4.7.8",
+    "handlebars-layouts": "^3.1.4"
+  }
+}
