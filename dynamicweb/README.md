@@ -1,5 +1,5 @@
-# Dynamic web pages examples
-
+# Dynamic web pages example
+This example show how to create a dynamic web site using Handlebars, TailwinCSS, DaisyUi and a Codehooks serverless backend.
 ## Install
 
 Install CLI
