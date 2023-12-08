@@ -1,0 +1,28 @@
+{{#extend "layout"}}
+    {{#content "main"}}
+
+    <div class="bg-white text-center py-16">
+        <h1 class="text-4xl font-bold text-gray-800">Our Products</h1>
+        <p class="text-md text-gray-600 mt-4">Explore our wide range of products</p>
+    </div>
+
+    <!-- Products Section -->
+    <section class="container mx-auto px-6 py-10">
+        <div class="space-y-6">
+            <!-- Repeat for all products -->
+            {{#products}}
+                <!-- Product Item -->
+                <div class="bg-white rounded shadow flex items-center p-6">
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-gray-800">{{name}}</h2>
+                        <p class="text-gray-600">Category: {{category}}</p>
+                        <p class="text-gray-800 font-semibold">Price: ${{price}}</p>
+                        <p class="text-green-600">{{stock}}</p>
+                    </div>
+                    <img src="https://placehold.co/200x150?text={{name}}" alt="Product Image" class="w-48 h-auto ml-4">
+                </div>                
+            {{/products}}
+        </div>
+    </section>
+    {{/content}}
+{{/extend}}

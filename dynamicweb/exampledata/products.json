@@ -1,0 +1,702 @@
+[
+    {
+        "id": 1,
+        "name": "Mystery Thriller 1",
+        "category": "Books",
+        "price": 646.83,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 2,
+        "name": "Tennis Racket 2",
+        "category": "Sporting Goods",
+        "price": 549.06,
+        "stock": "In Stock"
+    },
+    {
+        "id": 3,
+        "name": "Cookbook 3",
+        "category": "Books",
+        "price": 687.9,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 4,
+        "name": "History 4",
+        "category": "Books",
+        "price": 173.76,
+        "stock": "In Stock"
+    },
+    {
+        "id": 5,
+        "name": "Smartphone 5",
+        "category": "Electronics",
+        "price": 471.29,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 6,
+        "name": "Blender 6",
+        "category": "Home Appliances",
+        "price": 556.34,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 7,
+        "name": "Sci-Fi Novel 7",
+        "category": "Books",
+        "price": 930.35,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 8,
+        "name": "T-Shirt 8",
+        "category": "Clothing",
+        "price": 336.86,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 9,
+        "name": "Sci-Fi Novel 9",
+        "category": "Books",
+        "price": 594.11,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 10,
+        "name": "Smartphone 10",
+        "category": "Electronics",
+        "price": 337.68,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 11,
+        "name": "Sci-Fi Novel 11",
+        "category": "Books",
+        "price": 474.91,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 12,
+        "name": "Microwave 12",
+        "category": "Home Appliances",
+        "price": 975.91,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 13,
+        "name": "Vacuum Cleaner 13",
+        "category": "Home Appliances",
+        "price": 387.08,
+        "stock": "In Stock"
+    },
+    {
+        "id": 14,
+        "name": "Hiking Boots 14",
+        "category": "Outdoor",
+        "price": 726.3,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 15,
+        "name": "Blender 15",
+        "category": "Home Appliances",
+        "price": 293.12,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 16,
+        "name": "Laptop 16",
+        "category": "Electronics",
+        "price": 219.99,
+        "stock": "In Stock"
+    },
+    {
+        "id": 17,
+        "name": "Headphones 17",
+        "category": "Electronics",
+        "price": 991.3,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 18,
+        "name": "Camping Stove 18",
+        "category": "Outdoor",
+        "price": 815.88,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 19,
+        "name": "Jeans 19",
+        "category": "Clothing",
+        "price": 317.96,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 20,
+        "name": "Laptop 20",
+        "category": "Electronics",
+        "price": 265.79,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 21,
+        "name": "Sleeping Bag 21",
+        "category": "Outdoor",
+        "price": 936.8,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 22,
+        "name": "Camera 22",
+        "category": "Electronics",
+        "price": 96.88,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 23,
+        "name": "Basketball 23",
+        "category": "Sporting Goods",
+        "price": 414.98,
+        "stock": "In Stock"
+    },
+    {
+        "id": 24,
+        "name": "Headphones 24",
+        "category": "Electronics",
+        "price": 214.6,
+        "stock": "In Stock"
+    },
+    {
+        "id": 25,
+        "name": "Hat 25",
+        "category": "Clothing",
+        "price": 370.25,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 26,
+        "name": "Smartwatch 26",
+        "category": "Electronics",
+        "price": 901.96,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 27,
+        "name": "Tent 27",
+        "category": "Outdoor",
+        "price": 208.69,
+        "stock": "In Stock"
+    },
+    {
+        "id": 28,
+        "name": "Microwave 28",
+        "category": "Home Appliances",
+        "price": 550.98,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 29,
+        "name": "Camping Stove 29",
+        "category": "Outdoor",
+        "price": 891.28,
+        "stock": "In Stock"
+    },
+    {
+        "id": 30,
+        "name": "Yoga Mat 30",
+        "category": "Sporting Goods",
+        "price": 679.19,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 31,
+        "name": "Biography 31",
+        "category": "Books",
+        "price": 953.79,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 32,
+        "name": "Blender 32",
+        "category": "Home Appliances",
+        "price": 151.2,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 33,
+        "name": "Headphones 33",
+        "category": "Electronics",
+        "price": 442.48,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 34,
+        "name": "Microwave 34",
+        "category": "Home Appliances",
+        "price": 541.13,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 35,
+        "name": "Biography 35",
+        "category": "Books",
+        "price": 632.69,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 36,
+        "name": "Hiking Boots 36",
+        "category": "Outdoor",
+        "price": 282.5,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 37,
+        "name": "Camping Stove 37",
+        "category": "Outdoor",
+        "price": 791.95,
+        "stock": "In Stock"
+    },
+    {
+        "id": 38,
+        "name": "Cookbook 38",
+        "category": "Books",
+        "price": 487.98,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 39,
+        "name": "Headphones 39",
+        "category": "Electronics",
+        "price": 547.76,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 40,
+        "name": "Sci-Fi Novel 40",
+        "category": "Books",
+        "price": 71.91,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 41,
+        "name": "Camping Stove 41",
+        "category": "Outdoor",
+        "price": 520.13,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 42,
+        "name": "Biography 42",
+        "category": "Books",
+        "price": 92.27,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 43,
+        "name": "Mystery Thriller 43",
+        "category": "Books",
+        "price": 474.49,
+        "stock": "In Stock"
+    },
+    {
+        "id": 44,
+        "name": "Backpack 44",
+        "category": "Outdoor",
+        "price": 593.63,
+        "stock": "In Stock"
+    },
+    {
+        "id": 45,
+        "name": "Camping Stove 45",
+        "category": "Outdoor",
+        "price": 256.71,
+        "stock": "In Stock"
+    },
+    {
+        "id": 46,
+        "name": "T-Shirt 46",
+        "category": "Clothing",
+        "price": 756.78,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 47,
+        "name": "History 47",
+        "category": "Books",
+        "price": 872.67,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 48,
+        "name": "Mystery Thriller 48",
+        "category": "Books",
+        "price": 771.66,
+        "stock": "In Stock"
+    },
+    {
+        "id": 49,
+        "name": "Hiking Boots 49",
+        "category": "Outdoor",
+        "price": 934.89,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 50,
+        "name": "Hat 50",
+        "category": "Clothing",
+        "price": 142.12,
+        "stock": "In Stock"
+    },
+    {
+        "id": 51,
+        "name": "Backpack 51",
+        "category": "Outdoor",
+        "price": 409.65,
+        "stock": "In Stock"
+    },
+    {
+        "id": 52,
+        "name": "Vacuum Cleaner 52",
+        "category": "Home Appliances",
+        "price": 839.62,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 53,
+        "name": "Board Game 53",
+        "category": "Toys",
+        "price": 598.11,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 54,
+        "name": "Puzzle 54",
+        "category": "Toys",
+        "price": 424.13,
+        "stock": "In Stock"
+    },
+    {
+        "id": 55,
+        "name": "Yoga Mat 55",
+        "category": "Sporting Goods",
+        "price": 301.79,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 56,
+        "name": "Hiking Boots 56",
+        "category": "Outdoor",
+        "price": 210.89,
+        "stock": "In Stock"
+    },
+    {
+        "id": 57,
+        "name": "Yoga Mat 57",
+        "category": "Sporting Goods",
+        "price": 827.65,
+        "stock": "In Stock"
+    },
+    {
+        "id": 58,
+        "name": "Vacuum Cleaner 58",
+        "category": "Home Appliances",
+        "price": 889.22,
+        "stock": "In Stock"
+    },
+    {
+        "id": 59,
+        "name": "Blender 59",
+        "category": "Home Appliances",
+        "price": 130.72,
+        "stock": "In Stock"
+    },
+    {
+        "id": 60,
+        "name": "Cookbook 60",
+        "category": "Books",
+        "price": 962.59,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 61,
+        "name": "History 61",
+        "category": "Books",
+        "price": 840.62,
+        "stock": "In Stock"
+    },
+    {
+        "id": 62,
+        "name": "Vacuum Cleaner 62",
+        "category": "Home Appliances",
+        "price": 433.54,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 63,
+        "name": "Jeans 63",
+        "category": "Clothing",
+        "price": 472.59,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 64,
+        "name": "Puzzle 64",
+        "category": "Toys",
+        "price": 394.65,
+        "stock": "In Stock"
+    },
+    {
+        "id": 65,
+        "name": "Football 65",
+        "category": "Sporting Goods",
+        "price": 469.9,
+        "stock": "In Stock"
+    },
+    {
+        "id": 66,
+        "name": "Laptop 66",
+        "category": "Electronics",
+        "price": 415.13,
+        "stock": "In Stock"
+    },
+    {
+        "id": 67,
+        "name": "Remote Car 67",
+        "category": "Toys",
+        "price": 598.63,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 68,
+        "name": "T-Shirt 68",
+        "category": "Clothing",
+        "price": 910.06,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 69,
+        "name": "Vacuum Cleaner 69",
+        "category": "Home Appliances",
+        "price": 980.93,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 70,
+        "name": "Tennis Racket 70",
+        "category": "Sporting Goods",
+        "price": 224.13,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 71,
+        "name": "Biography 71",
+        "category": "Books",
+        "price": 439.91,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 72,
+        "name": "Coffee Maker 72",
+        "category": "Home Appliances",
+        "price": 330.08,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 73,
+        "name": "Remote Car 73",
+        "category": "Toys",
+        "price": 669.22,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 74,
+        "name": "Sneakers 74",
+        "category": "Clothing",
+        "price": 211.4,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 75,
+        "name": "Vacuum Cleaner 75",
+        "category": "Home Appliances",
+        "price": 465.3,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 76,
+        "name": "Remote Car 76",
+        "category": "Toys",
+        "price": 884.96,
+        "stock": "In Stock"
+    },
+    {
+        "id": 77,
+        "name": "Backpack 77",
+        "category": "Outdoor",
+        "price": 729.7,
+        "stock": "In Stock"
+    },
+    {
+        "id": 78,
+        "name": "Remote Car 78",
+        "category": "Toys",
+        "price": 731.37,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 79,
+        "name": "Football 79",
+        "category": "Sporting Goods",
+        "price": 551.29,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 80,
+        "name": "Camera 80",
+        "category": "Electronics",
+        "price": 476.83,
+        "stock": "In Stock"
+    },
+    {
+        "id": 81,
+        "name": "Sneakers 81",
+        "category": "Clothing",
+        "price": 224.85,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 82,
+        "name": "Camera 82",
+        "category": "Electronics",
+        "price": 22.52,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 83,
+        "name": "Smartphone 83",
+        "category": "Electronics",
+        "price": 152.15,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 84,
+        "name": "Hiking Boots 84",
+        "category": "Outdoor",
+        "price": 15.39,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 85,
+        "name": "Remote Car 85",
+        "category": "Toys",
+        "price": 703.18,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 86,
+        "name": "Basketball 86",
+        "category": "Sporting Goods",
+        "price": 623.1,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 87,
+        "name": "Mystery Thriller 87",
+        "category": "Books",
+        "price": 311.11,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 88,
+        "name": "Laptop 88",
+        "category": "Electronics",
+        "price": 171.69,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 89,
+        "name": "Sleeping Bag 89",
+        "category": "Outdoor",
+        "price": 307.38,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 90,
+        "name": "Hat 90",
+        "category": "Clothing",
+        "price": 489.47,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 91,
+        "name": "Board Game 91",
+        "category": "Toys",
+        "price": 348.21,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 92,
+        "name": "Biography 92",
+        "category": "Books",
+        "price": 635.75,
+        "stock": "In Stock"
+    },
+    {
+        "id": 93,
+        "name": "Jacket 93",
+        "category": "Clothing",
+        "price": 204.98,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 94,
+        "name": "Mystery Thriller 94",
+        "category": "Books",
+        "price": 324.9,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 95,
+        "name": "T-Shirt 95",
+        "category": "Clothing",
+        "price": 514.66,
+        "stock": "Limited Availability"
+    },
+    {
+        "id": 96,
+        "name": "Sleeping Bag 96",
+        "category": "Outdoor",
+        "price": 36.13,
+        "stock": "In Stock"
+    },
+    {
+        "id": 97,
+        "name": "Headphones 97",
+        "category": "Electronics",
+        "price": 921.57,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 98,
+        "name": "Biography 98",
+        "category": "Books",
+        "price": 321.25,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 99,
+        "name": "Smartphone 99",
+        "category": "Electronics",
+        "price": 633.52,
+        "stock": "Out of Stock"
+    },
+    {
+        "id": 100,
+        "name": "Basketball 100",
+        "category": "Sporting Goods",
+        "price": 799.6,
+        "stock": "In Stock"
+    }
+]

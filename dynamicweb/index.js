@@ -2,7 +2,7 @@
 * Codehooks (c) example: Dynamic web pages
 * Install: npm i codehooks-js
 */
-import {app} from 'codehooks-js'
+import {app, datastore} from 'codehooks-js'
 
 import handlebars from 'handlebars';
 import layouts from 'handlebars-layouts';
@@ -19,7 +19,7 @@ app.set('layout', '/views/layout.hbs');
 app.set('view engine', {"hbs": handlebars})
 
 // allow public access to /web*
-app.auth(/^\/(home|about|services|contact)?$/, (req, res, next) => {
+app.auth(/^\/(home|about|services|contact|products)?$/, (req, res, next) => {
   next()
 })
 
@@ -34,6 +34,15 @@ app.get('/about', async (req, res) => {
 
 app.get('/services', async (req, res) => {  
   res.render('services', {title: "Services page", root, space})
+})
+
+app.get('/products', async (req, res) => {  
+  // connect to Database
+  const conn = await datastore.open()
+  // Query the first 10 products
+  const products = await conn.getMany('products', {query: {}, limit: 10}).toArray()
+  // set products to Handlebars context for use in view
+  res.render('products', {title: "Products page", products, root, space})
 })
 
 app.get('/contact', async (req, res) => {  

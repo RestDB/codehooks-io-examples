@@ -26,6 +26,16 @@ Add dependencies
 
 `npm run deploy`
 
+## Import data
+
+Import example product data to the database
+
+`coho import -f exampledata/products.json -c products`
+
+Check in Studio or with the CLI.
+
+`coho query products`
+
 ## Usage
 
 Visit the project URL `coho info` will show yours.
