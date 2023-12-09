@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "codehooks-js": "^1.1.8",
+    "codehooks-js": "^1.1.9",
     "handlebars": "^4.7.8",
     "handlebars-layouts": "^3.1.4"
   }

@@ -19,7 +19,7 @@ app.set('layout', '/views/layout.hbs');
 app.set('view engine', {"hbs": handlebars})
 
 // allow public access to /web*
-app.auth(/^\/(home|about|services|contact|products)?$/, (req, res, next) => {
+app.auth(/^\/(home|about|services|contact|products|product\/.*)?$/, (req, res, next) => {
   next()
 })
 
@@ -43,6 +43,16 @@ app.get('/products', async (req, res) => {
   const products = await conn.getMany('products', {query: {}, limit: 10}).toArray()
   // set products to Handlebars context for use in view
   res.render('products', {title: "Products page", products, root, space})
+})
+
+app.get('/product/:ID', async (req, res) => {  
+  // connect to Database
+  const conn = await datastore.open()
+  // Query the first 10 products
+  const {ID} = req.params;
+  const product = await conn.getOne('products', ID);
+  // set product details to Handlebars context for use in view
+  res.render('productDetails', {title: "Products page", product, root, space})
 })
 
 app.get('/contact', async (req, res) => {  

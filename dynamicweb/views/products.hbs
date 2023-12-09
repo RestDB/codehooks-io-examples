@@ -14,11 +14,17 @@
                 <!-- Product Item -->
                 <div class="bg-white rounded shadow flex items-center p-6">
                     <div class="flex-1">
-                        <h2 class="text-xl font-bold text-gray-800">{{name}}</h2>
+                        <a href="product/{{_id}}">
+                            <h2 class="text-xl font-bold text-gray-800">{{name}}</h2>
+                        </a>
                         <p class="text-gray-600">Category: {{category}}</p>
                         <p class="text-gray-800 font-semibold">Price: ${{price}}</p>
-                        <p class="text-green-600">{{stock}}</p>
+                        <p class="text-green-600 pb-1">{{stock}}</p>
+                        <a href="product/{{_id}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            View
+                        </a>
                     </div>
+                    
                     <img src="https://placehold.co/200x150?text={{name}}" alt="Product Image" class="w-48 h-auto ml-4">
                 </div>                
             {{/products}}
