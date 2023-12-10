@@ -4,12 +4,14 @@
   "description": "Codehooks example for dynamic web pages",
   "main": "index.js",
   "scripts": {
-    "deploy": "coho upload --src './assets'  && coho upload --src './views' && coho deploy --upload"
+    "deploy": "coho upload --src './assets'  && coho upload --src './views' && coho deploy --upload",
+    "update": "coho upload --src './views' && coho deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "busboy": "^1.6.0",
     "codehooks-js": "^1.1.9",
     "handlebars": "^4.7.8",
     "handlebars-layouts": "^3.1.4"

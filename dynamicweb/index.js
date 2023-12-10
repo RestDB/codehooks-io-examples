@@ -3,9 +3,9 @@
 * Install: npm i codehooks-js
 */
 import {app, datastore} from 'codehooks-js'
-
 import handlebars from 'handlebars';
 import layouts from 'handlebars-layouts';
+import Busboy from 'busboy';
 
 const space = "dev";
 const root = `/${space}`;
@@ -19,7 +19,7 @@ app.set('layout', '/views/layout.hbs');
 app.set('view engine', {"hbs": handlebars})
 
 // allow public access to /web*
-app.auth(/^\/(home|about|services|contact|products|product\/.*)?$/, (req, res, next) => {
+app.auth(/^\/(home|about|services|contact|thanks|products|product\/.*)?$/, (req, res, next) => {
   next()
 })
 
@@ -55,8 +55,34 @@ app.get('/product/:ID', async (req, res) => {
   res.render('productDetails', {title: "Products page", product, root, space})
 })
 
+// contact form
 app.get('/contact', async (req, res) => {  
   res.render('contact', {title: "Contact us page", root, space})
+})
+
+// form post
+app.post('/contact', (req, res) => {
+  const contactInfo = {};
+  if (req.headers['content-type'].startsWith('multipart/form-data')) {
+      const bb = Busboy({ headers: req.headers });
+      
+      bb.on('field', (name, val, info) => {
+        contactInfo[name] = val;
+          console.log(`Field [${name}]: value: ${val}`);
+      });
+      bb.on('close', async () => {
+          console.log('Done parsing form!');
+          const conn = await datastore.open()
+          // insert one record in the contact collection
+          const contact = await conn.insertOne('contact', contactInfo);
+          const countres = await conn.getMany('contact', {query: {}, hints: {count: true}}).toArray();
+          console.log('Count', countres[0].count)
+          res.render('thanks', {title: "Contact us page - thank you", contact, count: countres[0].count, root, space})
+      });
+      req.pipe(bb);
+  } else {
+      res.status(400).end('Not multipart-form data')
+  }
 })
 
 // serve static assets

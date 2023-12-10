@@ -1,0 +1,41 @@
+{{#extend "layout"}}
+{{#content "main"}}
+<!-- Hero Section -->
+<div class="bg-white text-center py-16">
+    <h1 class="text-4xl font-bold text-gray-800">Reciept number: {{count}}</h1>
+    <p class="text-md text-gray-600 mt-4">We're here to help and answer any question you might have</p>
+</div>
+
+<!-- Contact Section -->
+<section class="container mx-auto px-6 py-10">
+    Thank you for contacting us.
+    This is the information that we got:
+    <div class="overflow-x-auto">
+        <pre>{{debug}}</pre>
+        <table class="table">
+            <!-- head -->
+            
+            <tbody>
+                <!-- Note the dot notation for field names with a dash 'first-name' 'last-name' -->
+                <tr>                    
+                    <td>First name:</td>
+                    <td>{{contact.[first-name]}}</td>
+                </tr>   
+                <tr>                    
+                    <td>Last name:</td>
+                    <td>{{contact.[last-name]}}</td>
+                </tr>   
+                <tr>                    
+                    <td>Email:</td>
+                    <td>{{contact.email}}</td>
+                </tr>   
+                <tr>                    
+                    <td>Message:</td>
+                    <td>{{contact.message}}</td>
+                </tr>              
+            </tbody>
+        </table>
+    </div>
+</section>
+{{/content}}
+{{/extend}}
