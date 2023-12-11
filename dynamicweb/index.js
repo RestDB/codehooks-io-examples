@@ -62,6 +62,7 @@ app.get('/contact', async (req, res) => {
 
 // form post
 app.post('/contact', (req, res) => {
+  console.log("POST contact", req)
   const contactInfo = {};
   if (req.headers['content-type'].startsWith('multipart/form-data')) {
       const bb = Busboy({ headers: req.headers });

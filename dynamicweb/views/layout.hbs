@@ -3,46 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acme Corp - {{title}}</title>
+    <title>{{title}}</title>
     <!-- Insert Tailwind CSS CDN here -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.1/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Insert DaisyUI plugin CDN here -->
-    <!--script src="https://cdn.jsdelivr.net/npm/daisyui/dist/full.js"></script-->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.19/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
-
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between">
-                <div class="flex space-x-7">
-                    <!-- Logo -->
-                    <div>
-                        <a href="{{root}}" class="flex items-center py-4 px-2">
-                            <img src="/{{space}}/assets/img/logo-small.png" alt="Logo" class="h-8 w-8 mr-2">
-                            <span class="font-semibold text-gray-500 text-lg">Acme Corp</span>
-                        </a>
-                    </div>
-                    <!-- Primary Navbar items -->
-                    <div class="hidden md:flex items-center space-x-1">
-                        <a href="{{root}}" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Home</a>
-                        <a href="{{root}}/about" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">About</a>
-                        <a href="{{root}}/services" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Services</a>
-                        <a href="{{root}}/products" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Products</a>
-                        <a href="{{root}}/contact" class="py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact</a>
-                    </div>
-                </div>
-                <!-- Secondary Navbar items -->
-                <div class="hidden md:flex items-center space-x-3 ">
-                    <a href="" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
-                    <a href="" class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Sign Up</a>
-                </div>
+    <!-- Navbar -->
+    <div class="navbar bg-base-100">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <label tabindex="0" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </label>
+                <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="{{root}}" >Home</a></li>
+                    <li><a href="{{root}}/about">About</a></li>
+                    <li><a href="{{root}}/services">Services</a></li>
+                    <li><a href="{{root}}/products">Products</a></li>
+                    <li><a href="{{root}}/contact">Contact</a></li>
+                </ul>
             </div>
+            <a href="{{root}}" class="flex items-center py-4 px-2">
+                <img src="/{{space}}/assets/img/logo-small.png" alt="Logo" class="h-8 w-8 mr-2">
+                <span class="font-semibold text-gray-500 text-lg">Acme Corp</span>
+            </a>
         </div>
-    </nav>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-2">
+                <li><a href="{{root}}" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Home</a></li>
+                <li><a href="{{root}}/about" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">About</a></li>
+                <li><a href="{{root}}/services" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Services</a></li>
+                <li><a href="{{root}}/products" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Products</a></li>
+                <li><a href="{{root}}/contact" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact</a></li>
+            </ul>
+        </div>
+        <!-- Additional navbar items (right side) -->
+        <div class="navbar-end">
+            <a href="" class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300">Log In</a>
+            <a href="" class="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Sign Up</a>
+        </div>
+        
+    </div>
 
-    {{#block "main"}}                
-    {{/block}}    
+    <!-- Page Content -->
+    <div>
+        {{#block "main"}}                
+        {{/block}}
+    </div>
 
     <!-- Footer -->
     <footer class="bg-white">
@@ -86,5 +96,6 @@
         </div>
     </footer>
 
+    <!-- Include DaisyUI Script if required -->
 </body>
 </html>
