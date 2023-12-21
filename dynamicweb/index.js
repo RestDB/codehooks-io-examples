@@ -7,8 +7,8 @@ import handlebars from 'handlebars';
 import layouts from 'handlebars-layouts';
 import Busboy from 'busboy';
 
-//const baseUrl = 'http://dynamicweb-4hvc.api.codehooks.io/dev/'; // for development without a domain
-const baseUrl = 'https://myweb.codehook.io'; // with a custom domain
+const baseUrl = 'http://dynamicweb-h2pl.api.codehooks.io/dev/'; // for development without a domain
+//const baseUrl = 'https://www.example.com'; // with a custom domain
 
 // layout helper
 handlebars.registerHelper(layouts(handlebars));
