@@ -20,11 +20,11 @@
                     </svg>
                 </label>
                 <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a href="home" >Home</a></li>
-                    <li><a href="about">About</a></li>
-                    <li><a href="services">Services</a></li>
-                    <li><a href="products">Products</a></li>
-                    <li><a href="contact">Contact</a></li>
+                    <li class="{{#if home}}bg-primary{{/if}}"><a href="home" >Home</a></li>
+                    <li class="{{#if about}}bg-primary{{/if}}"><a href="about">About</a></li>
+                    <li class="{{#if services}}bg-primary{{/if}}"><a href="services">Services</a></li>
+                    <li class="{{#if products}}bg-primary{{/if}}"><a href="products">Products</a></li>
+                    <li class="{{#if contact}}bg-primary{{/if}}"><a href="contact">Contact</a></li>
                     <li><a href="">Login</a></li>
                     <li><a href="">Signup</a></li>
                 </ul>
@@ -36,11 +36,11 @@
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-2">
-                <li><a href="home" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Home</a></li>
-                <li><a href="about" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">About</a></li>
-                <li><a href="services" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Services</a></li>
-                <li><a href="products" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Products</a></li>
-                <li><a href="contact" class="text-lg py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300">Contact</a></li>
+                <li><a href="home" class="text-lg py-4 px-2 text-{{#if home}}orange{{else}}gray{{/if}}-500 font-semibold hover:text-green-500 transition duration-300">Home</a></li>
+                <li><a href="about" class="text-lg py-4 px-2 text-{{#if about}}orange{{else}}gray{{/if}}-500 font-semibold hover:text-green-500 transition duration-300">About</a></li>
+                <li><a href="services" class="text-lg py-4 px-2 text-{{#if services}}orange{{else}}gray{{/if}}-500 font-semibold hover:text-green-500 transition duration-300">Services</a></li>
+                <li><a href="products" class="text-lg py-4 px-2 text-{{#if products}}orange{{else}}gray{{/if}}-500 font-semibold hover:text-green-500 transition duration-300">Products</a></li>
+                <li><a href="contact" class="text-lg py-4 px-2 text-{{#if contact}}orange{{else}}gray{{/if}}-500 font-semibold hover:text-green-500 transition duration-300">Contact</a></li>
             </ul>
         </div>
         <!-- Additional navbar items (right side) -->

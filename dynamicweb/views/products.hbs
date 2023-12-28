@@ -10,7 +10,7 @@
     <section class="container mx-auto px-6 py-10">
         <div class="space-y-6">
             <!-- Repeat for all products -->
-            {{#products}}
+            {{#productList}}
                 <!-- Product Item -->
                 <div class="bg-white rounded shadow flex items-center p-6">
                     <div class="flex-1">
@@ -27,7 +27,7 @@
                     
                     <img src="https://placehold.co/200x150?text={{name}}" alt="Product Image" class="w-48 h-auto ml-4">
                 </div>                
-            {{/products}}
+            {{/productList}}
         </div>
     </section>
     {{/content}}

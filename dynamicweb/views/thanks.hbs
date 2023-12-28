@@ -11,27 +11,24 @@
     Thank you for contacting us.
     This is the information that we got:
     <div class="overflow-x-auto">
-        <pre>{{debug}}</pre>
-        <table class="table">
-            <!-- head -->
-            
+        <table class="table">            
             <tbody>
                 <!-- Note the dot notation for field names with a dash 'first-name' 'last-name' -->
                 <tr>                    
                     <td>First name:</td>
-                    <td>{{contact.[first-name]}}</td>
+                    <td>{{contactData.[first-name]}}</td>
                 </tr>   
                 <tr>                    
                     <td>Last name:</td>
-                    <td>{{contact.[last-name]}}</td>
+                    <td>{{contactData.[last-name]}}</td>
                 </tr>   
                 <tr>                    
                     <td>Email:</td>
-                    <td>{{contact.email}}</td>
+                    <td>{{contactData.email}}</td>
                 </tr>   
                 <tr>                    
                     <td>Message:</td>
-                    <td>{{contact.message}}</td>
+                    <td>{{contactData.message}}</td>
                 </tr>              
             </tbody>
         </table>
