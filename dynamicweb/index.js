@@ -52,7 +52,7 @@ app.get('/products', async (req, res) => {
 app.get('/product/:ID', async (req, res) => {  
   // connect to Database
   const conn = await datastore.open()
-  // Query the first 10 products
+  // Query the product ID
   const {ID} = req.params;
   const product = await conn.getOne('products', ID);
   // set product details to Handlebars context for use in view
