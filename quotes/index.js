@@ -20,7 +20,7 @@ async function randomQuote(req, res) {
    //filter: {rowcount: randomPos}
   }
   // run the query, returns a stream of 1 item ;)
-  conn.getMany('quotes', options)
+  conn.getMany('quotes', {}, options)
     .on('data', (data) => {
       console.log(data)
       const { quote, author } = data;
