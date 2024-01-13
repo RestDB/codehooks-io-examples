@@ -1,4 +1,4 @@
-# Example Web App using DaisyUi, alpine.js and Codehooks.io
+# Example Web App using DaisyUI, Alpine.js and codehooks.io
 
 [Read Dev.to tutorial here](https://dev.to/restdbjones/daisyui-alpinejs-codehooksio-the-simple-web-app-trio-4lad)
 
