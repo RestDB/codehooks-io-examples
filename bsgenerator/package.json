@@ -1,0 +1,16 @@
+{
+  "name": "bsgenerator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "codehooks upload ./webapp",
+    "deploy": "codehooks deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "codehooks-js": "^1.1.10"
+  }
+}

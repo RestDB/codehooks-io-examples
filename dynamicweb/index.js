@@ -7,7 +7,7 @@ import handlebars from 'handlebars';
 import layouts from 'handlebars-layouts';
 import Busboy from 'busboy';
 
-const baseUrl = 'http://dynamicweb-h2pl.api.codehooks.io/dev/'; // for development without a domain
+const baseUrl = 'https://dynamicweb-h2pl.api.codehooks.io/dev/'; // for development without a domain
 //const baseUrl = 'https://www.example.com'; // with a custom domain
 
 // layout helper
@@ -43,9 +43,12 @@ app.get('/services', async (req, res) => {
 app.get('/products', async (req, res) => {  
   // connect to Database
   const conn = await datastore.open()
-  // Query the first 10 products
-  const productList = await conn.getMany('products', {query: {}, limit: 10}).toArray()
+  // Query the first 20 products
+  const query = {name: {$exists: true}};
+  const options = {limit: 20, sort: {price: 1}}
+  const productList = await conn.collection('products').find(query, options).toArray()
   // set products to Handlebars context for use in view
+  console.debug('Fetched products from database', productList)
   res.render('products', {title: "Products page", productList, baseUrl, products: true})
 })
 
@@ -54,7 +57,7 @@ app.get('/product/:ID', async (req, res) => {
   const conn = await datastore.open()
   // Query the product ID
   const {ID} = req.params;
-  const product = await conn.getOne('products', ID);
+  const product = await conn.collection('products').findOne({_id: ID});
   // set product details to Handlebars context for use in view
   res.render('productDetails', {title: "Products page", product, baseUrl, products: true})
 })
