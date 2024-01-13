@@ -1,5 +1,7 @@
 # Example Web App using DaisyUi, alpine.js and Codehooks.io
 
+[Read Dev.to tutorial here](https://dev.to/restdbjones/daisyui-alpinejs-codehooksio-the-simple-web-app-trio-4lad)
+
 ## Project Setup
 Create a project directory for the source code files and initialize npm. Or you can clone this repo and jump to the next section.
 
