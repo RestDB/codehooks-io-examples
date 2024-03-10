@@ -7,7 +7,7 @@ This is a [Next.js](https://nextjs.org/) project created by using the [`create-n
 ## Getting Started
 
 First create a Codehooks.io backend CRUD project, follow [the quick start guide](https://codehooks.io/docs/quickstart-cli). 
-Then add your Codehooks project URL and API token in the `.env.local` file. Get you project domain and API token with on the project dashboard or with the CLI command `coho info`
+Then add your Codehooks project URL and API token in the `.env.local` file. Get you project domain and API token from the project dashboard or with the CLI command `coho info`
 
 An example `.env.local` file is shown below:
 
