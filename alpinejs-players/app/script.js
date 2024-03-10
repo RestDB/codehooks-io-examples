@@ -1,5 +1,5 @@
 // replace this with your project url, use CLI command 'coho info' to find yours
-const MY_CODEHOOKS_URL = "https://static-i4rq.api.codehooks.io/dev/football";
+const MY_CODEHOOKS_URL = "/football";
 // replace this with your own key, use CLI command 'coho add-token' to create a new one
 const MY_API_KEY = "0b49638f-56c3-48e9-8725-7f3c20f25316";
 

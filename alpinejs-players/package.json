@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "deploy": "coho deploy --upload && coho file-upload --src './app' --target '/'"
+    "deploy": "coho deploy --upload && coho file-upload --src './app' --target '/app'"
   },
   "dependencies": {
-    "codehooks-js": "^1.1.4"
+    "codehooks-js": "^1.2.9"
   }
 }
