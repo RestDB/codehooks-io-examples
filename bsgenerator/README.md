@@ -1,22 +1,20 @@
-# Example Web App using DaisyUi, alpine.js and Codehooks.io
+# Example Web App using DaisyUI, Alpine.js and codehooks.io
+
+[Read the full tutorial at Dev.to here](https://dev.to/restdbjones/daisyui-alpinejs-codehooksio-the-simple-web-app-trio-4lad)
+
+![screen shot](../images/bsgenerator.png)
+
+[Link to live example.](https://bsgenerator-kge3.api.codehooks.io/dev)
 
 ## Project Setup
-Create a project directory for the source code files and initialize npm. Or you can clone this repo and jump to the next section.
 
-```bash
-mkdir myproject && cd myproject
-mkdir webapp
-npm init -y
-npm install codehooks-js
+Clone the Codehooks examples repo, then move into the sub folder for this project and install npm dependencies.
 ```
-_Later we'll edit the package.json and add the deployment command for codehooks.io._
+git clone https://github.com/RestDB/codehooks-io-examples.git
 
+cd codehooks-io-examples/bsgenerator
 
-Now, create the Web App source files. In the root directory create the two files `index.js`and `buzzwords.js` for the server side code. 
-
-In the 'webapp' directory, create the two files for the client side code `index.html` and `script.js`. The `touch` command is a handy helper.
-```bash
-touch index.js buzzwords.js webapp/index.html webapp/main.js
+npm install
 ```
 
 ## Codehooks.io Account Setup
@@ -48,7 +46,7 @@ To deploy the complete web app and the backend API run:
 npm run deploy
 ```
 
-Check your project URL.
+Check your project URL, in my example it's `https://bsgenerator-kge3.api.codehooks.io/dev`
 
 ```bash
 coho info

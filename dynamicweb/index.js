@@ -83,7 +83,7 @@ app.post('/contact', (req, res) => {
           const conn = await datastore.open()
           // insert one record in the contact collection
           const contactData = await conn.insertOne('contact', contactInfo);
-          const countres = await conn.getMany('contact', {query: {}, hints: {count: true}}).toArray();
+          const countres = await conn.getMany('contact', {}, {hints: {count: true}}).toArray();
           console.log('Count', countres[0].count)
           res.render('thanks', {title: "Contact us page - thank you", contactData, count: countres[0].count, baseUrl, contact: true})
       });
