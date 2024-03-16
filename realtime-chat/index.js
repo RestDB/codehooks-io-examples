@@ -17,9 +17,16 @@ app.post('/connect', async (req, res) => {
 
 // client post a new message
 app.post('/messages', async (req, res) => {
-  const {message, listenerID} = req.body;
-  const data = await realtime.publishEvent('/chat', {"message": `${listenerID}: ${message}`});
+  console.log('Message in', req.body)
+  const {message, listenerID, alias} = req.body;
+  const data = await realtime.publishEvent('/chat', {"message": `${alias || 'Anonymous'}: ${message}`});
   res.end(data)
+})
+
+app.job('*/2 * * * *', async (_, job) => {
+  const message = `Hello from cron job at ${new Date().toISOString()}`;
+  const data = await realtime.publishEvent('/chat', {"message": `cron: ${message}`});
+  job.end()
 })
 
 app.static({route:'/public', directory: '/public'})

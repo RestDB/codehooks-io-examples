@@ -2,6 +2,7 @@ const API_TOKEN = '0a2249d4-5f10-489c-8229-1f060ad1e0f6';
 let listenerID = null;
 
 document.addEventListener('DOMContentLoaded', function() {
+    const aliasInput = document.getElementById('aliasInput');
     const messageInput = document.getElementById('messageInput');
     const sendButton = document.getElementById('sendButton');    
 
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Content-Type': 'application/json',
                 'x-apikey': API_TOKEN
             },
-            body: JSON.stringify({ message: message, listenerID }),
+            body: JSON.stringify({ message: message, listenerID, alias: aliasInput.value.trim() }),
         })
         .then(response => response.json())
         .then(data => {
@@ -49,23 +50,18 @@ function addMessage(message) {
     const messagesDiv = document.getElementById('messages');
     const messageElement = document.createElement('div');
     messageElement.textContent = message;
-    // If there's already a child, insert before the first child to add to the top
-    if (messagesDiv.firstChild) {
-        messagesDiv.insertBefore(messageElement, messagesDiv.firstChild);
-    } else {
-        // If no messages are present, appendChild will still add it to the top
-        messagesDiv.appendChild(messageElement);
-    }
-    // Auto-scroll to the top
-    messagesDiv.scrollTop = 0;
+    messagesDiv.appendChild(messageElement); // Adds the message at the bottom    
+    // Auto-scroll to the bottom
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
 
 // connect to realtime SSE
 async function startListener() {
     // setup the real time stuff
-    const sseStatus = document.getElementById('sseStatus');    
-    const interests = {}; // everything or nothing
+    const statusIndicator = document.getElementById('statusIndicator');
+  
+    const interests = {}; // everything
     var requestOptions = {
         method: 'POST',
         headers: {
@@ -87,8 +83,9 @@ async function startListener() {
             'x-apikey': API_TOKEN
         }
     });
-    sseStatus.style.backgroundColor = 'green';
-
+    statusIndicator.textContent = 'Connected';
+    statusIndicator.style.color = 'green';
+    
     // incoming message event
     eventSource.onmessage = function (event) {
         console.log("Event", event.data)
@@ -99,8 +96,8 @@ async function startListener() {
     // here we go
     eventSource.onopen = function(event) {
         // Connection is open
-        console.log('Open event', event)
-        sseStatus.style.backgroundColor = 'green';
+        statusIndicator.textContent = 'Live data ready';
+        statusIndicator.style.color = 'green';
     };
     // oops, should we reconnect
     eventSource.onerror = function(event) {
@@ -109,7 +106,8 @@ async function startListener() {
         if (eventSource.readyState == EventSource.CLOSED) {
             console.log("Connection was closed.");            
         }
-        sseStatus.style.backgroundColor = 'red';        
+        statusIndicator.textContent = 'No connection';
+        statusIndicator.style.color = 'red';
     };
 
     return result;
