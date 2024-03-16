@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codehooks.io - Chat App</title>
+    <script src="https://unpkg.com/event-source-polyfill@1.0.31/src/eventsource.js"></script>
+</head>
+
+<body>
+    <h1>Codehooks.io - Chat example</h1>
+
+    <div id="sseStatus" style="background-color: red; height: 20px; width: 20px; border-radius: 50%; margin-bottom: 10px;"></div>
+
+    <div id="chat">
+        <div id="messages" style="height: 150px; overflow: auto; border: 1px solid #ccc; margin-bottom: 10px;"></div>
+        <div id="inputContainer" style="display: flex; width: 100%;">
+            <input type="text" id="messageInput" placeholder="Type a message..."
+                style="flex-grow: 1; margin-right: 10px;">
+            <butto∏n id="sendButton">Send</button>
+        </div>
+    </div>
+    <script src="chat.js"></script>
+</body>
+
+</html>
