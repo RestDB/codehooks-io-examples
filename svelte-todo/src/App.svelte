@@ -9,13 +9,8 @@
 	import "./app.css";
 	import "todomvc-app-css/index.css";
 	import "todomvc-common/base.css";
-	import {
-		postTodoData,
-		getTodoData,
-		deleteTodoData,
-		toggleMultipleTodoData,
-		deleteMultipleTodoData
-	} from "./codehooksDB.js";
+	// data backend API
+	import {postTodoData, getTodoData, deleteTodoData, toggleMultipleTodoData, deleteMultipleTodoData} from "./codehooksDB.js";
 
 	let currentFilter = "all";
 
