@@ -88,7 +88,7 @@ export async function toggleMultipleTodoData(idList, completed) {
     }
 }
 
-// delete multiple todo items by ID
+// delete multiple todo items by ID 
 export async function deleteMultipleTodoData(idList) {
 	try {
 			const query = JSON.stringify({"_id": {"$in": idList}})
