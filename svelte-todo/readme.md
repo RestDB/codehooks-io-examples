@@ -5,7 +5,7 @@
 This application uses Svelte to implement a todoMVC application. The todo items are persisted to a Codehooks.io data backend using the standard CRUD REST API from a new Codehooks.io project.
 
 -   [Svelte](https://svelte.dev/) is a tool for building fast web applications. It is similar to JavaScript frameworks such as React and Vue, which share a goal of making it easy to build slick interactive user interfaces.
-- [Codehooks.io](https://codehooks.io) is a quick API and data backend. It is easy to start using Codehooks.io, and has the flexibility for growth and scale.
+- [Codehooks.io](https://codehooks.io) is a quick API and data backend. Codehooks.io has a very easy start default with a NoSQL CRUD REST API, and has the flexibility and power for more advanced development as you grow.
 
 This app is a modification of the [Svelte Todomvc app](https://todomvc.com). The original [source code can be found here](https://github.com/tastejs/todomvc/tree/master/examples/svelte).
 
@@ -33,12 +33,8 @@ npm run build
 
 ## Requirements
 
-The only requirement is an installation of Node, to be able to install dependencies and run scripts to serve a local server.
+The only requirement is an installation of Node (min version 18), to be able to install dependencies and run scripts to serve a local server.
 
-```
-* Node (min version: 18.13.0)
-* NPM (min version: 8.19.3)
-```
 
 ## Local preview
 
