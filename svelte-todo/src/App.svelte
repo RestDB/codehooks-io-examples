@@ -9,6 +9,7 @@
 	import "./app.css";
 	import "todomvc-app-css/index.css";
 	import "todomvc-common/base.css";
+
 	// data backend API
 	import {postTodoData, getTodoData, deleteTodoData, toggleMultipleTodoData, deleteMultipleTodoData} from "./codehooksDB.js";
 
@@ -24,7 +25,7 @@
 		// add to Codehooks backend
 		const data = await postTodoData(item);
 		items.push({
-			id: data._id, // This only works in secure-context.
+			id: data._id, // The database uses _id for unique ID
 			description: data.description,
 			completed: data.completed,
 		});
