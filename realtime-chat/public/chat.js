@@ -1,3 +1,4 @@
+// replace with your own api token
 const API_TOKEN = '0a2249d4-5f10-489c-8229-1f060ad1e0f6';
 let listenerID = null;
 
