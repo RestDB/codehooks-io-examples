@@ -11,6 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "codehooks-js": "^1.1.10"
+    "codehooks-js": "^1.2.9"
   }
 }
