@@ -18,6 +18,10 @@ Create a new project in the Codehooks.io Studio app, and then connect the code t
 coho init --empty
 ```
 
+Find your app endpoint and create a new API token in the Codehooks Studio app.
+
+Open `/public/chat.js` and replace the `API_TOKEN` const with your own api token.
+
 Install packages:
 ```bash
 npm install
@@ -27,5 +31,3 @@ Deploy the app to the cloud:
 ```bash
 npm run deploy
 ```
-
-Find your app endpoint and create a new API token in the Codehooks Studio app.
