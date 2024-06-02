@@ -7,7 +7,7 @@ import handlebars from 'handlebars';
 import layouts from 'handlebars-layouts';
 import Busboy from 'busboy';
 
-const baseUrl = 'https://dynamicweb-h2pl.api.codehooks.io/dev/'; // for development without a domain
+const baseUrl = ''; // for development without a domain
 //const baseUrl = 'https://www.example.com'; // with a custom domain
 
 // layout helper
@@ -93,8 +93,15 @@ app.post('/contact', (req, res) => {
   }
 })
 
-// serve static assets
-app.static({ route: '/assets', directory: '/assets' })
+// serve static assets/images, and cache for 1 hour
+app.static({ route: '/assets', directory: '/assets' }, (req, res, next) => {
+  console.log('Serve fresh static data');
+  const ONE_HOUR =  1000*60*60;
+  res.set('Cache-Control', `public, max-age=${ONE_HOUR}, s-maxage=${ONE_HOUR}`);
+  res.setHeader("Expires", new Date(Date.now() + ONE_HOUR).toUTCString());
+  res.removeHeader('Pragma');
+  next();
+})
 
 // bind to serverless runtime
 export default app.init();

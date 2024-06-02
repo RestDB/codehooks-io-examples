@@ -41,4 +41,4 @@ Check in Studio or with the CLI.
 Visit the project URL `coho info` will show yours.
 
 Live example here:
-[https://dynamicweb-h2pl.api.codehooks.io/dev](https://dynamicweb-h2pl.api.codehooks.io/dev)
+[https://youthful-levy-7b1f.codehooks.io](https://youthful-levy-7b1f.codehooks.io)
