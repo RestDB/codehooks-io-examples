@@ -12,15 +12,16 @@ async function randomQuote(req, res) {
   // open the NoSql Datastore
   const conn = await Datastore.open();
   // tell engine to use index field rowcount, and just start and end at the same pos
+  const query = {rowcount: randomPos};
+  /* alternative, use a blank query {} and options
   const options = {
     useIndex: "rowcount",
     startIndex: randomPos,
     endIndex: randomPos
-    
-   //filter: {rowcount: randomPos}
   }
+    */
   // run the query, returns a stream of 1 item ;)
-  conn.getMany('quotes', {}, options)
+  conn.getMany('quotes', query)
     .on('data', (data) => {
       console.log(data)
       const { quote, author } = data;
