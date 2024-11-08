@@ -1,4 +1,4 @@
-# Next.js and Codehooks.io Todo App</h3>
+# Next.js and Codehooks.io Todo App
 
 Create a todo app with Next.js using Codehooks.io NoSQL database backend API. 
 
