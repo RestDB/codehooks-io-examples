@@ -6,6 +6,7 @@ export const settings = {
     JWT_ACCESS_TOKEN_SECRET_EXPIRE: '1h',
     JWT_REFRESH_TOKEN_SECRET_EXPIRE: '7d',
     //redirectSuccessUrl: 'http://localhost:5173/userinfo',
+    redirectSuccessUrl: '/userinfo',
     baseAPIRoutes: '/api',
     google: {
         CLIENT_ID: process.env.CLIENT_ID,
@@ -22,5 +23,11 @@ export const settings = {
         DOMAIN: process.env.MAILGUN_DOMAIN,
         FROM_EMAIL: 'jones@restdb.io',
         FROM_NAME: 'RestDB auth team'
+    },
+    labels: {
+        signinTitle: 'Sign in to my app',
+        signupTitle: 'Sign up for my app',
+        forgotTitle: 'Forgot password',
+        otpTitle: 'OTP',
     }
 }

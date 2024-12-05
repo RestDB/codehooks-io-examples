@@ -31,7 +31,7 @@ const UserInfo = () => {
 
   return (
     <div>
-      <h2>User Information from Codehooks Auth</h2>
+      <h2>User Information</h2>
       {user ? (
         <div>
           <pre>
