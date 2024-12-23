@@ -13,8 +13,9 @@ function App() {
           <nav className="app-nav">
             <Link to="/">Home</Link> | 
             <Link to="/userinfo">User Info</Link> | 
-            <a href="https://fortuitous-expanse-a616.codehooks.io/auth/signup">Sign Up</a> | 
-            <a href="https://fortuitous-expanse-a616.codehooks.io/auth/login">Login</a>
+            <a href="/auth/signup">Sign Up</a> | 
+            <a href="/auth/login">Login</a>
+            <a href="/auth/logout">Logout</a>
           </nav>
 
           <Routes>

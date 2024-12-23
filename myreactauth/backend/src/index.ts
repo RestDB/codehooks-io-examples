@@ -1,8 +1,18 @@
-import {app, datastore} from 'codehooks-js'
+import {app, httpRequest, httpResponse} from 'codehooks-js'
 import { initAuth } from 'codehooks-auth'
 import { settings } from './auth-settings'
 import { authenticateToken } from './middleware/userInfo'
 
+const onSignupUser = async (user: any) => {
+  console.log('onSignup', user)
+  return new Promise((resolve, reject) => {
+    if (user.username === 'jones@restdb.io') {
+      resolve({...user, active: true})
+    } else {
+      reject(new Error('User not allowed to sign up'))
+    }
+  })
+}
 // setup auth settings
 initAuth(app, settings)
 
@@ -18,11 +28,11 @@ app.get('/api/userinfo', authenticateToken, async (req: any, res) => {
     })
   })
 
-// serve /auth/assets html forms javascripts etc
-//app.static({ route: '/auth', directory: '/auth/assets', default: 'login.html' })
 
 // serve /dist for react frontend
 app.static({ route: '/', directory: '/dist', default: 'index.html', notFound: '/index.html' })
 
 // bind to serverless runtime
-export default app.init()
+export default app.init(() => {
+  console.log('app initialized')
+})

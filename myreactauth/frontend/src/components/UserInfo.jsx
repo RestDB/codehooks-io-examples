@@ -39,7 +39,7 @@ const UserInfo = () => {
           </pre>
         </div>
       ) : (
-        <p><a href="https://fortuitous-expanse-a616.codehooks.io/auth/login">Login</a> to see user info</p>
+        <p><a href="/auth/login">Login</a> to see user info</p>
       )}
     </div>
   );

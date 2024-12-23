@@ -43,8 +43,13 @@ function passwordSignIn(event) {
 function otpSignIn(event) {
     event.preventDefault();
     
+    // Get signup value from hidden input with null check
+    const signupElement = document.getElementById('signup');
+    const signupValue = signupElement ? signupElement.value : 'false';
+    
     const data = {
-        username: document.getElementById('username').value        
+        username: document.getElementById('username').value,
+        signup: signupValue
     };
     
     fetch('/auth/otp', {
@@ -60,21 +65,28 @@ function otpSignIn(event) {
         } else {
             document.getElementById('error-message').style.display = 'none';                    
         }
-        if (response.redirected) {
-            return window.location.href = response.url;
-        }
+        
         return response.json();
     })
     .then(data => {
         if (data.error) {
-            console.error('Error login:', data);                        
+            console.error('Error login:', data);     
+            throw new Error(data.error)                   
         } else {
-            console.log('Login data', data)
+            console.log('OTP Login data', data)
+            if (!data.email) {
+                throw new Error('OTP login error: No email provided')
+            }
             window.location.href = `otp#email=${data.email}`;
+            /*
+            if (response.redirected) {
+                return window.location.href = response.url;
+            }
+            */
         }
     })
     .catch((error) => {
-        console.error('Error:', error);
+        console.error('OTP loginError:', error);
         document.getElementById('error-message').style.display = 'block';
     });
 }
@@ -85,4 +97,15 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("Password: DOM fully loaded and parsed");
     // Your event listener code here
     document.getElementById('login-form').addEventListener('submit', otpSignIn);
+    if (window.location.hash) {
+        // Extract the access token
+        const hashParams = new URLSearchParams(
+          window.location.hash.substring(1) // Remove the # character
+        );
+        const error = hashParams.get('error');
+        console.log('error', error);
+        if (error) {
+          document.getElementById('error-message').style.display = 'block';
+        }
+      }
 });
