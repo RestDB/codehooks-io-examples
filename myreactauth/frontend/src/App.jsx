@@ -14,7 +14,7 @@ function App() {
             <Link to="/">Home</Link> | 
             <Link to="/userinfo">User Info</Link> | 
             <a href="/auth/signup">Sign Up</a> | 
-            <a href="/auth/login">Login</a>
+            <a href="/auth/login">Login</a> |
             <a href="/auth/logout">Logout</a>
           </nav>
 
