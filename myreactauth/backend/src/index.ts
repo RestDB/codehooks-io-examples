@@ -1,4 +1,4 @@
-import {app, httpRequest, httpResponse} from 'codehooks-js'
+import {app, httpRequest, httpResponse, Datastore} from 'codehooks-js'
 import { initAuth } from 'codehooks-auth'
 import { settings } from './auth-settings'
 import { authenticateToken } from './middleware/userInfo'
@@ -13,8 +13,10 @@ const onSignupUser = async (user: any) => {
     }
   })
 }
+
 // setup auth settings
 initAuth(app, settings)
+
 
 // setup your api
 app.get('/api/hello', (req: any, res) => {
@@ -23,10 +25,11 @@ app.get('/api/hello', (req: any, res) => {
 
 app.get('/api/userinfo', authenticateToken, async (req: any, res) => {
     console.log('userinfo', req.jwt_decoded)
-    res.json({
-      user: req.jwt_decoded
-    })
+    const db = await Datastore.open()
+    const user = await db.getOne('users', {email: req.jwt_decoded.email})
+    res.json({...user})
   })
+
 
 
 // serve /dist for react frontend

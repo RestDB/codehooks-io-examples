@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App auth from outer space</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+
+<body class="bg-gray-900 flex items-start md:items-center justify-center h-screen">
+
+  <div class="w-full max-w-sm mx-auto bg-white shadow-lg rounded-lg p-8 mt-8 md:mt-0">
+
+    <!-- Logo at the top center, replace with our own SVG or Image -->
+    <div class="flex justify-center mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 50" width="40" height="50" fill="none"
+        stroke="currentColor" stroke-width="2">
+        <!-- Outer shield -->
+        <path d="M20 2L2 9v14c0 11 9 20 18 25 9-5 18-14 18-25V9L20 2z" fill="#2D9CDB" stroke="#1C75BC" />
+
+        <!-- Inner shield layer -->
+        <path d="M20 5L4 11v11c0 10 7 17 16 22 9-5 16-12 16-22V11L20 5z" fill="white" stroke="#1C75BC" />
+
+        <!-- Check mark -->
+        <polyline points="14,25 18,29 28,19" fill="none" stroke="#1C75BC" stroke-width="2" />
+      </svg>
+    </div>
+    {{{contentBlock}}}
+  </div>
+  <script src="{{script}}"></script>
+</body>
+
+</html>
