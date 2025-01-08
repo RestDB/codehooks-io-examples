@@ -3,17 +3,14 @@ import { initAuth } from 'codehooks-auth'
 import { settings } from './auth-settings'
 import { authenticateToken } from './middleware/userInfo'
 
-const onSignupUser = async (user: any) => {
-  console.log('onSignup', user)
-  return new Promise((resolve, reject) => {
-    if (user.username === 'jones@restdb.io') {
-      resolve({...user, active: true})
-    } else {
-      reject(new Error('User not allowed to sign up'))
-    }
-  })
+const cacheFunction = (req: httpRequest, res: httpResponse, next: any) => {
+  res.set('Cache-Control', `public, max-age=${ONE_DAY}, s-maxage=${ONE_DAY}`)
+  res.set('Expires', new Date(Date.now() + ONE_DAY).toUTCString())
+  res.removeHeader('Pragma');
+  next()
 }
 
+settings.staticHook = cacheFunction;
 // setup auth settings
 initAuth(app, settings)
 
@@ -30,10 +27,10 @@ app.get('/api/userinfo', authenticateToken, async (req: any, res) => {
     res.json({...user})
   })
 
-
+const ONE_DAY = 24 * 60 * 60 * 1000;
 
 // serve /dist for react frontend
-app.static({ route: '/', directory: '/dist', default: 'index.html', notFound: '/index.html' })
+app.static({ route: '/', directory: '/dist', default: 'index.html', notFound: '/index.html' }, cacheFunction)
 
 // bind to serverless runtime
 export default app.init(() => {

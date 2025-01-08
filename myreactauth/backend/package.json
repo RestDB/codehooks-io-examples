@@ -10,7 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "codehooks-auth": "^0.0.8",
+    "codehooks-auth": "^1.0.2",
     "codehooks-js": "^1.2.20",
     "cookie": "^1.0.1",
     "handlebars": "^4.7.8",
