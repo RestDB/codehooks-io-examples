@@ -17,11 +17,13 @@ initAuth(app, settings)
 
 // setup your api
 app.get('/api/hello', (req: any, res) => {
+  console.debug('REQUEST headers', req.headers)
   res.send('Hello World!')
 })
 
 app.get('/api/userinfo', authenticateToken, async (req: any, res) => {
     console.log('userinfo', req.jwt_decoded)
+    console.debug('REQUEST headers', req.headers)
     const db = await Datastore.open()
     const user = await db.getOne('users', {email: req.jwt_decoded.email})
     res.json({...user})

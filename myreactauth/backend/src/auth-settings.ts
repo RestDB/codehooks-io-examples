@@ -11,7 +11,7 @@ export const settings: AuthSettings = {
     JWT_ACCESS_TOKEN_SECRET_EXPIRE: '1h',
     JWT_REFRESH_TOKEN_SECRET_EXPIRE: '7d',
     //redirectSuccessUrl: 'http://localhost:5173/userinfo',
-    baseUrl: 'https://fortuitous-expanse-a616.codehooks.io',
+    baseUrl: `https://${YOUR_APP_URL}`,
     redirectSuccessUrl: '/userinfo',
     redirectFailUrl: '/auth/login',
     baseAPIRoutes: '/api',
@@ -41,10 +41,10 @@ export const settings: AuthSettings = {
         }*/
     },
     labels: {
-        signinTitle: 'Sign in',
-        signupTitle: 'Create an account',
-        forgotTitle: 'Forgot password',
-        otpTitle: 'One time password',
+        signinTitle: 'Sign in (DEMO)',
+        signupTitle: 'Create an account (DEMO)',
+        forgotTitle: 'Forgot password (DEMO)',
+        otpTitle: 'One time password (DEMO)',
     },
     templateLoaders: {
         layout: () => {return handlebars.compile(require('../auth/assets/layout.hbs'))},

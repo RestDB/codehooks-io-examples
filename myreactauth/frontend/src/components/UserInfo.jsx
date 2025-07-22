@@ -7,6 +7,7 @@ const UserInfo = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
+        console.log('fetching user info', import.meta.env.VITE_CODEHOOKS_API_URL);
         const response = await fetch(`${import.meta.env.VITE_CODEHOOKS_API_URL}/userinfo`, {
           credentials: 'include',
           headers: {
