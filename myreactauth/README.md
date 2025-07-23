@@ -1,16 +1,16 @@
 # React Auth Full-Stack App with Codehooks.io
 
-This is a complete full-stack authentication application demonstrating how to host both React frontend and Express backend on Codehooks.io. The app showcases OAuth authentication with GitHub and Google, user management, and a seamless deployment workflow.
+This is a complete full-stack authentication application demonstrating how to host both React frontend and API backend on Codehooks.io. The app showcases OAuth authentication with GitHub and Google, user management, and a seamless deployment workflow.
 
 ## Architecture Overview
 
 This application uses a monorepo structure with two main components:
 
 - **Frontend**: React SPA built with Vite
-- **Backend**: Express.js API using codehooks-js framework
+- **Backend**: API using codehooks-js framework
 - **Deployment**: Single codehooks.io backend that serves both API endpoints and static frontend files
 
-The key architectural decision is that the React frontend builds into the backend's `/dist` directory, allowing the codehooks.io backend to serve both the API and the static React app from a single deployment.
+The key architectural decision is that the React frontend builds into the backend's `/dist` directory, allowing the codehooks.io backend to [serve both the API and the static React app](https://codehooks.io/docs/#frontend-hosting-setup) from a single deployment.
 
 ## Project Structure
 
