@@ -2,6 +2,10 @@
 
 This is a complete full-stack authentication application demonstrating how to host both React frontend and API backend on Codehooks.io. The app showcases OAuth authentication with GitHub and Google, user management, and a seamless deployment workflow.
 
+![screenshot of the deployed react app at codehooks.io](screenshots/reactapp.png)
+
+See a live demo of the application here: [Live Demo](https://fortuitous-expanse-a616.codehooks.io/)
+
 ## Architecture Overview
 
 This application uses a monorepo structure with two main components:
