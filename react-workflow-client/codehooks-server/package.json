@@ -1,0 +1,21 @@
+{
+  "name": "workflow-server",
+  "version": "1.0.0",
+  "description": "Codehooks.io server for workflow application system",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "coho deploy",
+    "build": "codehooks compile --tofile index.cjs",
+    "dev": "nodemon --watch . --ext js,html,css,json --exec \"npm run build\"",
+    "start": "docker compose up -d",
+    "stop": "docker compose down",
+    "logs": "docker compose logs -f coderunner-service"
+  },
+  "dependencies": {
+    "codehooks-js": "^1.3.12"
+  },
+  "author": "",
+  "license": "MIT"
+}
+

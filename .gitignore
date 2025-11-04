@@ -2,3 +2,4 @@
 node_modules/
 .localserver/
 config.json
+.env
