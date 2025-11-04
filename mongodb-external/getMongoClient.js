@@ -10,7 +10,7 @@ export function getMongoClient() {
             // cached conn
             return resolve(mongoConn);
         }
-        console.log('conn str', process.env);
+        //console.log('conn str', process.env);
         MongoClient.connect(connectionString, function (err, conn) {
             if (err || !conn) {
                 console.log("Err connect", err, conn);
