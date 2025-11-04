@@ -1,253 +1,154 @@
 # React Workflow Client
 
-A modern React application for managing step-wise workflow approvals with real-time updates powered by codehooks.io.
+A full-stack React workflow application with real-time updates, built on Codehooks.io. Features a step-wise approval process with SSE (Server-Sent Events), mock auth, and TailwindCSS/daisyUI interface.
 
-## Features
+## Quick Start
 
-- 🔐 Mock authentication system with login/logout
-- 📊 Step-wise workflow visualization using daisyUI
-- ⚡ Real-time updates via Server-Sent Events (SSE)
-- 🎨 Beautiful UI with TailwindCSS and daisyUI components
-- 🔄 Multi-stage approval workflow
-- 📝 Activity logging
-- 📱 Responsive design
+```bash
+# Install dependencies
+npm install
 
-## Workflow Steps
+# Run client in development mode
+npm run dev
 
-1. **Registration** - User submits equipment request
-2. **Pending Approval** - Waiting for company approval
-3. **User Choice** - Select preferred configuration
-4. **Pending Final** - Final approval review
-5. **Completed** - Application approved or denied
+# Run mock server (testing without backend)
+npm run mock-server
+```
 
-## Tech Stack
+Visit `http://localhost:5173` (client) or `http://localhost:3001` (mock server)
 
-- **React 18** - UI library
-- **Vite** - Build tool
-- **React Router** - Client-side routing
-- **TailwindCSS** - Utility-first CSS
-- **daisyUI** - Component library
-- **EventSource Polyfill** - SSE client
-- **codehooks.io** - Backend platform (separate app)
+## Client-Side Setup
 
-## Installation
+The client is a Vite + React application with the following scripts:
 
-1. **Clone the repository**
-   ```bash
-   cd react-workflow-client
-   ```
+### `npm run dev`
+Starts the Vite development server. Hot-reload enabled for rapid development.
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### `npm run build`
+Builds the React client for production to `dist/` folder. Optimizes and minifies for deployment.
 
-3. **Configure environment variables**
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Edit `.env` and update the values:
-   - `VITE_API_URL` - Your codehooks.io backend URL
-   - `VITE_API_TOKEN` - Your API authentication token
+### `npm run build:all`
+Builds **both** the React client and the Codehooks server in one command:
+```bash
+npm run build && cd codehooks-server && npm run build
+```
+Use this before deploying to prepare both frontend and backend.
 
-4. **Start the development server**
-   ```bash
-   npm run dev
-   ```
+### `npm run preview`
+Preview the production build locally before deployment.
 
-   The app will be available at `http://localhost:3000`
+### `npm run mock-server`
+Runs a local Express server (`mock-server.js`) that simulates the Codehooks backend with SSE support. Useful for frontend development without deploying the backend.
 
-## Usage
+## Server-Side Setup
 
-### Login
+The backend is in the `codehooks-server/` directory and includes:
 
-The application includes a mock authentication system. You can:
-- Enter any email/password combination to login
-- Click "Try Demo Login" for instant access with demo credentials
+### Installation
 
-### Submit an Application
+```bash
+cd codehooks-server
+npm install
 
-1. After logging in, you'll see the workflow interface
-2. Fill out the equipment request form
-3. Submit your application
-4. Wait for real-time updates from the server
+# Install Codehooks CLI globally (if needed)
+npm install -g codehooks
+```
 
-### Real-time Updates
+### Authentication
 
-The application connects to your codehooks.io backend using Server-Sent Events (SSE). The connection status is shown in the header:
-- 🟢 **Live** - Connected to server
-- 🔴 **Offline** - Not connected
+```bash
+# Login to Codehooks.io
+coho login
 
-When the backend sends events, the workflow automatically progresses through the steps.
+# Initialize project (first time only)
+coho init --empty
+```
 
-## Backend Integration
+### Scripts
 
-This client is designed to work with a codehooks.io backend. The backend should implement:
+#### `npm run deploy`
+Deploys the application to Codehooks.io. This uploads both:
+- Backend code (`index.js`, `workflows/`)
+- Frontend static files (from `dist/` if built)
 
-### Required API Endpoints
+#### `npm run build`
+Compiles the Codehooks code to a single `index.cjs` file for deployment validation.
 
-1. **POST /connect** - Get a listener ID for SSE
-   ```json
-   Request: { "userId": "12345" }
-   Response: { "listenerID": "abc123" }
-   ```
+#### `npm run dev`
+Watch mode for development - automatically recompiles on file changes.
 
-2. **GET /workflow/:listenerID** - SSE stream endpoint
-   - Returns Server-Sent Events
-   - Events should include workflow updates
+#### `npm run start` / `npm run stop`
+Start/stop the local Docker environment for testing workflows locally.
 
-3. **POST /workflow/submit** - Submit new application
-   ```json
-   {
-     "listenerID": "abc123",
-     "userId": "12345",
-     "userName": "John Doe",
-     "item": "laptop",
-     "justification": "Need for work",
-     "specifications": "High performance"
-   }
-   ```
+#### `npm run logs`
+View real-time logs from the local Docker container.
 
-4. **POST /workflow/choice** - Submit user choice
-   ```json
-   {
-     "listenerID": "abc123",
-     "userId": "12345",
-     "choice": "professional"
-   }
-   ```
+## Full Deployment Workflow
 
-### Expected Server Events
+```bash
+# 1. Build both client and server
+npm run build:all
 
-The backend should send events with the following types:
+# 2. Deploy to Codehooks.io
+cd codehooks-server
+npm run deploy
 
-```javascript
-// Initial approval
-{ type: 'approval_granted', data: {}, timestamp: '2025-11-02T...' }
-{ type: 'approval_denied', data: { reason: 'Budget exceeded' }, timestamp: '...' }
-
-// Final decision
-{ type: 'final_approval', data: {}, timestamp: '...' }
-{ type: 'final_denial', data: { reason: 'Not available' }, timestamp: '...' }
+# Your app is now live at https://yourproject.codehooks.io
 ```
 
 ## Project Structure
 
 ```
 react-workflow-client/
-├── public/              # Static assets
-├── src/
-│   ├── context/
-│   │   └── AuthContext.jsx      # Authentication context
-│   ├── pages/
-│   │   ├── Login.jsx            # Login page
-│   │   └── Workflow.jsx         # Main workflow page
-│   ├── services/
-│   │   └── realtimeService.js   # SSE/realtime service
-│   ├── App.jsx          # Main app component
-│   ├── main.jsx         # Entry point
-│   └── index.css        # Global styles
-├── index.html
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-└── README.md
+├── src/                        # React client source
+│   ├── pages/                  # Login & Workflow pages
+│   ├── context/                # Auth context
+│   └── services/               # SSE/realtime service
+├── codehooks-server/           # Backend (Codehooks.io)
+│   ├── index.js                # API routes & static hosting
+│   ├── workflows/              # Workflow definitions
+│   │   └── approvalWorkflow.js # Multi-step approval logic
+│   └── dist/                   # Built React app (after build)
+├── mock-server.js              # Local dev mock backend
+└── package.json                # Client scripts
 ```
 
-## Development
+## Key Features
 
-### Available Scripts
+- **Real-time Updates** - SSE connection for live workflow progress
+- **Workflow API** - Stateful multi-step approval process with retry/timeout
+- **Static Hosting** - Backend serves the React app from `/dist`
+- **Mock Auth** - Simple login system (use any email/password)
+- **Responsive UI** - TailwindCSS + daisyUI components
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
+## API Endpoints
 
-### Customization
+- `POST /workflow/create` - Create new workflow instance
+- `POST /workflow/:id/submit` - Submit application form
+- `POST /workflow/:id/choice` - Submit user choice
+- `GET /workflow/:id/state` - Get current workflow state
+- `POST /connect` - Create SSE listener
+- `GET /workflows` - List all workflows (admin)
 
-**Change Theme:**
+## Development Tips
 
-Edit `tailwind.config.js` to use different daisyUI themes:
+**Local Development:**
+1. Use `npm run mock-server` to develop frontend without backend
+2. Or use `npm run dev` + local Docker server (`cd codehooks-server && npm run start`)
 
-```javascript
-daisyui: {
-  themes: ["light", "dark", "cupcake", "corporate"],
-}
-```
+**Production Build:**
+1. Always run `npm run build:all` before deploying
+2. Verify build with `npm run preview`
+3. Deploy with `cd codehooks-server && npm run deploy`
 
-**Modify Workflow Steps:**
-
-Edit the `WORKFLOW_STEPS` constant in `src/pages/Workflow.jsx` to customize the workflow stages.
-
-**Update Connection Logic:**
-
-Modify `src/services/realtimeService.js` to change how the app connects to the backend.
-
-## Troubleshooting
-
-### Connection Issues
-
-If the app shows "Offline":
-1. Check that your backend is running
-2. Verify the `VITE_API_URL` in `.env`
-3. Check browser console for errors
-4. Verify your API token is correct
-
-### CORS Errors
-
-If you see CORS errors in the console:
-- Ensure your codehooks.io backend has CORS properly configured
-- The backend should allow requests from `http://localhost:3000`
-
-### Events Not Received
-
-If workflow doesn't progress:
-1. Check that the backend is sending events in the correct format
-2. Open browser DevTools > Network tab > EventSource
-3. Verify events are being received
-4. Check console for parsing errors
-
-## Backend Example
-
-For reference, here's a minimal codehooks.io backend structure:
-
-```javascript
-import { app, realtime } from 'codehooks-js';
-
-// Create real-time channel
-realtime.createChannel('/workflow');
-
-// Connect endpoint
-app.post('/connect', async (req, res) => {
-  const listenerData = await realtime.createListener('/workflow', req.body);
-  res.json({ listenerID: listenerData._id });
-});
-
-// Submit application
-app.post('/workflow/submit', async (req, res) => {
-  // Process application...
-  // Simulate approval after delay
-  setTimeout(async () => {
-    await realtime.publishEvent('/workflow', {
-      type: 'approval_granted',
-      data: {},
-      timestamp: new Date().toISOString()
-    });
-  }, 5000);
-  res.json({ success: true });
-});
-
-export default app.init();
-```
-
-## License
-
-MIT
+**Customization:**
+- Modify workflow steps in `codehooks-server/workflows/approvalWorkflow.js`
+- Update UI theme in `tailwind.config.js` (daisyUI themes)
+- Adjust SSE logic in `src/services/realtimeService.js`
 
 ## Links
 
-- [codehooks.io Documentation](https://codehooks.io/docs)
-- [Real-time API Documentation](https://codehooks.io/docs/realtimeapi)
-- [daisyUI Components](https://daisyui.com/components/)
-- [TailwindCSS](https://tailwindcss.com/)
+- [Codehooks.io Docs](https://codehooks.io/docs)
+- [Workflow API](https://codehooks.io/docs/workflow-api)
+- [Realtime API](https://codehooks.io/docs/realtimeapi)
 

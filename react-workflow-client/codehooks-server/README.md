@@ -83,7 +83,7 @@ After deployment, the frontend and backend are served from the same domain, so n
 For production builds, update `.env.production`:
 
 ```env
-VITE_API_URL=
+VITE_API_URL=https://yourprojectname.codehooks.io
 VITE_API_TOKEN=your-production-token-from-codehooks-dashboard
 ```
 
