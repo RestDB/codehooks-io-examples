@@ -360,11 +360,11 @@ function Workflow() {
       {/* Header */}
       <div className="navbar bg-base-100 rounded-box shadow-lg mb-6">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">Workflow Application System</a>
+          <a className="btn btn-ghost text-xl">Workflow Application System (Codehooks.io Demo)</a>
         </div>
         <div className="flex-none gap-2">
           <div className="flex items-center gap-2 mr-4">
-            <div className="badge badge-sm" 
+            <div className="badge" 
               style={{ 
                 backgroundColor: connectionStatus === 'connected' ? '#22c55e' : '#ef4444' 
               }}
@@ -715,7 +715,7 @@ function Workflow() {
                           {new Date(event.timestamp).toLocaleString()}
                         </td>
                         <td>
-                          <div className="badge badge-sm">
+                          <div className="badge">
                             {event.type.replace(/_/g, ' ')}
                           </div>
                         </td>

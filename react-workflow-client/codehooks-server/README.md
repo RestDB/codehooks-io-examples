@@ -33,6 +33,9 @@ npm run deploy
 
 ## API Endpoints
 
+- `GET /` - Redirects to `/home`
+- `GET /home` - React application (static files)
+- `GET /info` - Server health check
 - `POST /workflow/create` - Create new workflow
 - `GET /workflow/:id/state` - Get workflow state
 - `POST /workflow/:id/submit` - Submit application
@@ -83,7 +86,7 @@ After deployment, the frontend and backend are served from the same domain, so n
 For production builds, update `.env.production`:
 
 ```env
-VITE_API_URL=https://yourprojectname.codehooks.io
+VITE_API_URL=
 VITE_API_TOKEN=your-production-token-from-codehooks-dashboard
 ```
 

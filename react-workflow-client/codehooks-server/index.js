@@ -295,7 +295,7 @@ app.post('/workflow/:workflowId/choice', async (req, res) => {
 /**
  * List all workflows (for debugging/admin)
  */
-app.get('/workflows', async (req, res) => {
+app.get('/api/workflows', async (req, res) => {
   try {
     const conn = await Datastore.open()
     const workflows = await conn.getMany('workflows', {}, 
@@ -312,11 +312,39 @@ app.get('/workflows', async (req, res) => {
   }
 })
 
+
+
+/**
+ * Redirect root to /home
+ */
+app.auth('/', async (req, res, next) => {
+  next()
+})
+app.get('/', async (req, res) => {
+  res.redirect('/home')
+})
+
+/**
+ * Serve static files for the React frontend
+ * This should be defined AFTER all API routes
+ */
+app.static({
+  route: '/home',
+  directory: '/dist',
+  default: 'index.html',
+  notFound: '/index.html' // Essential for client-side routing (SPA)
+}, (req, res, next) => {
+  // Optional: Set cache headers for static assets
+  //const ONE_DAY = 24 * 60 * 60 * 1000 // 24 hours in milliseconds
+  //res.set('Cache-Control', `public, max-age=${ONE_DAY}`)
+  next()
+})
+
 /**
  * Cron job to check for timed-out workflow steps
  * Runs every 5 minutes
  */
-app.job('*/5 * * * *', async (req, res) => {
+app.job('0 2 * * *', async (req, res) => {
   try {
     console.log('⏰ Checking for timed-out workflows...')
     const timedOut = await approvalWorkflow.findTimedOutSteps()
@@ -329,22 +357,6 @@ app.job('*/5 * * * *', async (req, res) => {
     console.error('❌ Error in timeout check:', error)
   }
   res.end() // Signal job completion
-})
-
-/**
- * Serve static files for the React frontend
- * This should be defined AFTER all API routes
- */
-app.static({
-  route: '/',
-  directory: '/dist',
-  default: 'index.html',
-  notFound: '/index.html' // Essential for client-side routing (SPA)
-}, (req, res, next) => {
-  // Optional: Set cache headers for static assets
-  //const ONE_DAY = 24 * 60 * 60 * 1000 // 24 hours in milliseconds
-  //res.set('Cache-Control', `public, max-age=${ONE_DAY}`)
-  next()
 })
 
 // Export the app
