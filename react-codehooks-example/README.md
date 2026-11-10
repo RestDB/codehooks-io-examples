@@ -7,7 +7,7 @@ backend together) deploys to the cloud with one command.
 **Live demo:** https://keen-plateau-53a3.codehooks.io/
 **Walkthrough:** https://codehooks.io/react-codehooks-example
 
-![The React + Codehooks example app](https://codehooks.io/img/react-codehooks-example/app-screenshot.webp)
+![The React + Codehooks example app](./screenshot.webp)
 
 ## What it shows
 
