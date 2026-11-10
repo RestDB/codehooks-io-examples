@@ -1,0 +1,22 @@
+{
+  "name": "react-codehooks-example",
+  "version": "1.0.0",
+  "description": "Official React + Codehooks.io example — Hello World, a rotating list seeded in app.init(), and a live key-value visitor counter. One file backend, one deploy.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build && coho upload ./dist",
+    "deploy": "coho deploy"
+  },
+  "dependencies": {
+    "codehooks-js": "^1.2.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}

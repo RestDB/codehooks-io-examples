@@ -1,0 +1,238 @@
+:root {
+  --ground: #0a0d12;
+  --line: #1b2330;
+  --line-soft: #141a24;
+  --green: #00e676;
+  --green-deep: #00c662;
+  --text: #eef2f7;
+  --muted: #7f8a99;
+  --panel: rgba(255, 255, 255, 0.015);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Stage ------------------------------------------------------------- */
+.stage {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7vh 24px;
+  overflow: hidden;
+}
+
+/* A single soft green bloom behind the panel — the one piece of decoration. */
+.glow {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  width: min(760px, 90vw);
+  height: min(760px, 90vw);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(0, 230, 118, 0.14) 0%,
+    rgba(0, 230, 118, 0.05) 32%,
+    transparent 66%
+  );
+  pointer-events: none;
+}
+
+/* Faint technical grid, so the ground is not a flat void. */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at 50% 42%, #000 0%, transparent 72%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ---- Panel ------------------------------------------------------------- */
+.panel {
+  position: relative;
+  z-index: 1;
+  width: min(620px, 100%);
+  padding: 44px clamp(24px, 5vw, 56px) 40px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+  backdrop-filter: blur(6px);
+  text-align: center;
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.99);
+  }
+}
+
+/* ---- Status ------------------------------------------------------------ */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 30px;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.dot--connected {
+  background: var(--green);
+  box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.6);
+  animation: pulse 2s infinite;
+}
+
+.dot--loading {
+  background: #d9a441;
+  animation: blink 1s infinite;
+}
+
+.dot--error {
+  background: #e5484d;
+}
+
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 7px rgba(0, 230, 118, 0);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* ---- Hello ------------------------------------------------------------- */
+.hello {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(42px, 9vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, #ffffff 30%, #a9f4cc 140%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Rotating messages ------------------------------------------------- */
+.rotator {
+  margin: 26px auto 0;
+  min-height: 72px;
+  max-width: 44ch;
+}
+
+.message {
+  margin: 0;
+  font-size: clamp(16px, 2.3vw, 19px);
+  line-height: 1.5;
+  color: #d4dbe4;
+  animation: fade 0.6s ease both;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.caption {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.caption code,
+.counter__label code {
+  font-family: 'Space Grotesk', ui-monospace, monospace;
+  color: var(--green);
+  background: rgba(0, 230, 118, 0.08);
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-size: 0.92em;
+}
+
+/* ---- Visitor counter: the bold element --------------------------------- */
+.counter {
+  margin-top: 36px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.counter__value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: clamp(56px, 13vw, 104px);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  color: var(--green);
+  text-shadow: 0 0 34px rgba(0, 230, 118, 0.35);
+}
+
+.counter__label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---- Footer ------------------------------------------------------------ */
+.foot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 34px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.foot__sep {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .message,
+  .dot--connected,
+  .dot--loading {
+    animation: none;
+  }
+}
