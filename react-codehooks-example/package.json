@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "predeploy": "npm run build && coho upload ./dist",
+    "predeploy": "npm run build",
     "deploy": "coho deploy"
   },
   "dependencies": {

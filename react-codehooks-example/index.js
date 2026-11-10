@@ -44,7 +44,7 @@ app.get('/api/messages', async (req, res) => {
   res.json(rows.map((row) => row.text));
 });
 
-// Serve the built React app. `coho upload ./dist` puts the build here first.
+// Serve the built React app. `coho deploy` ships the dist/ build with the code.
 app.static({
   route: '/',
   directory: '/dist',

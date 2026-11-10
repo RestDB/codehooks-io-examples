@@ -40,14 +40,14 @@ npm install
 # One-time: create a Codehooks project and link this folder
 coho create            # or: coho init <project> <space> to use an existing one
 
-# Build the React app, upload it, and deploy the backend
+# Build the React app, then deploy the backend and the build together
 npm run build
-coho upload ./dist
 coho deploy
 ```
 
-`coho deploy` prints your live URL. Open it and the greeting, the rotating
-message and the counter all come from your own backend.
+`coho deploy` ships your code and the `dist/` build in one step and prints your
+live URL. Open it and the greeting, the rotating message and the counter all
+come from your own backend.
 
 ### Local frontend development
 
